@@ -9,9 +9,9 @@ what and the why) then **~20 min build**. `PLAN.md` is the design reference;
 ## 📍 You are here
 
 ```
-Current session:  S0.1 — Git before anything else
-Last session:     —
-Progress:         0 / 88 sessions
+Current session:  S0.3 — The request/response lifecycle
+Last session:     2026-09-28 (S0.2)
+Progress:         2 / 88 sessions
 ```
 
 Update this block at the end of every session.
@@ -81,7 +81,7 @@ behind a load balancer (Stage 8).
 **Goal:** a clean repo, and a mental model of what happens when you click a button.
 **Interview Q you can answer after:** "What happens when you type a URL and press Enter?"
 
-- [ ] **S0.1 — Git before anything else**
+- [x] **S0.1 — Git before anything else**
   - *Concept:* Git is a history of snapshots. `.gitignore` goes in **before** the
     first commit, because once a secret is committed it stays in history forever.
   - *Build:* `git init`. Write a `.gitignore` covering `venv/`, `.env`,
@@ -89,7 +89,7 @@ behind a load balancer (Stage 8).
     GitHub repo and push.
   - *Done when:* `git status` is clean and `venv/` is not on GitHub.
 
-- [ ] **S0.2 — Virtual environments & dependencies**
+- [x] **S0.2 — Virtual environments & dependencies**
   - *Concept:* A venv gives each project its own copy of its packages, so two
     projects needing different versions don't fight. `requirements.txt` is the
     list of ingredients, so anyone (including a server) can rebuild the same
@@ -682,3 +682,5 @@ explain every file back.
 One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 
 <!-- newest at the bottom -->
+2026-09-28 — S0.1 — git init, .gitignore before first commit, pushed to GitHub (santiago28b/financial-tracker)
+2026-09-28 — S0.2 — venv + pip freeze → requirements.txt; transitive deps get pinned too; rebuilt venv from scratch
