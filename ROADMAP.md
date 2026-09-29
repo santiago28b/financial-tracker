@@ -9,9 +9,9 @@ what and the why) then **~20 min build**. `PLAN.md` is the design reference;
 ## 📍 You are here
 
 ```
-Current session:  S0.3 — The request/response lifecycle
-Last session:     2026-09-28 (S0.2)
-Progress:         2 / 88 sessions
+Current session:  S0.4 — Checkpoint: the 3-tier architecture
+Last session:     2026-09-28 (S0.3)
+Progress:         3 / 88 sessions
 ```
 
 Update this block at the end of every session.
@@ -98,7 +98,7 @@ behind a load balancer (Stage 8).
     Delete the venv, recreate it, reinstall from the file.
   - *Done when:* you can rebuild the environment from scratch in under a minute.
 
-- [ ] **S0.3 — The request/response lifecycle**
+- [x] **S0.3 — The request/response lifecycle**
   - *Concept:* Client/server, DNS, TCP, HTTP request (method, path, headers,
     body), response (status, headers, body). JSON as the shared language.
   - *Build:* Use `curl -v https://api.github.com/users/octocat` and label every
@@ -684,3 +684,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 <!-- newest at the bottom -->
 2026-09-28 — S0.1 — git init, .gitignore before first commit, pushed to GitHub (santiago28b/financial-tracker)
 2026-09-28 — S0.2 — venv + pip freeze → requirements.txt; transitive deps get pinned too; rebuilt venv from scratch
+2026-09-28 — S0.3 — curl -v: DNS → IP → TCP handshake → TLS handshake → HTTP request → server → response (status, headers, JSON body)
