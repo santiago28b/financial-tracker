@@ -25,6 +25,8 @@ Evidence:
 - 2026-10-20 — S0.4: skipped the ritual and drew first; the ritual wasn't clear
   until it was shown with an example. Did it once that happened.
 - 2026-10-20 — S1.1 (min): started docs/data-model.md from blank without help.
+- 2026-10-20 — S1.1: first ritual attempt was one generic line; needed 3 rounds of
+  questions to get the entity shape down before writing fields.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -39,6 +41,7 @@ Evidence:
 - 2026-09-28 → 2026-10-20 — 3-week gap after S0.3 (classes).
 - 2026-10-20 — back: S0.4 done in one sitting.
 - 2026-10-20 — took a minimum session instead of skipping the day.
+- 2026-10-20 — then turned it into a full 45-min S1.1.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -47,6 +50,9 @@ Evidence:
 - 2026-10-20 — S0.4: `docs/architecture.md` has a Mermaid block I couldn't
   explain. Delete it, or learn it, before the next session.
 - 2026-10-20 — Mermaid block deleted; the plain-text diagram I wrote stays.
+- 2026-10-20 — S1.1: pasted Claude's sentence into data-model.md, then explained
+  it in own words ("it already reaches the user through account_id"). Had
+  Claude write DECISIONS 007 and 011 from my answers; re-read them.
 
 ---
 
@@ -58,6 +64,8 @@ Evidence:
   travels React → Backend, and the Backend checks it.
 - 2026-10-20 — S1.1 (min): reasoned that our table shouldn't store passwords
   because Supabase Auth keeps the hash.
+- 2026-10-20 — S1.1: came up with the opening-balance Transaction on my own;
+  spotted that a stored balance is redundancy.
 
 ---
 
@@ -66,6 +74,7 @@ Evidence:
 One line per session where a hint was used: `date — session — highest rung — what it was about`.
 
 <!-- newest at the bottom -->
+2026-10-20 — S1.1 — L2 — column types and ON DELETE SET NULL (Postgres docs)
 
 ---
 

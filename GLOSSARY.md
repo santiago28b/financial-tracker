@@ -16,6 +16,14 @@ _Avoid_: User account, login
 One movement of money on a date, with an amount and a description, belonging to one Account.
 _Avoid_: Expense, record, entry
 
+**Category**:
+A label a User puts on Transactions, owned by that User; defaults are copied to each User at sign-up.
+_Avoid_: Tag, type
+
+**Opening balance**:
+The Transaction that records the money already in an Account when the User starts tracking it.
+_Avoid_: Starting balance column
+
 **DB transaction**:
 A group of database writes that commit or roll back together. Always written with the "DB" prefix.
 _Avoid_: Transaction (unqualified)

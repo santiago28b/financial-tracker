@@ -109,14 +109,18 @@ Why:
 
 ## 007 — What happens when a category is deleted
 
-Date:
-Status: open
+Date: 2026-10-20
+Status: decided
 
 Its transactions vanish, or become uncategorised?
 
-Decision:
+Decision: they become uncategorised. `Transaction.category_id` is a nullable
+`uuid` with `ON DELETE SET NULL`.
 
-Why:
+Alternatives considered: `ON DELETE CASCADE`, which deletes the Transactions too.
+
+Why: a Category is a label, and the money still moved. Deleting a label must
+never delete money history, or monthly totals would silently change.
 
 ---
 
@@ -197,3 +201,20 @@ Alternatives considered: OpenAI / a local model via Ollama.
 Why: Same provider I already use, a few dollars a month at this scale. The eval
 set is what makes the feature defensible in an interview: "I measured it" beats
 "it seems to work".
+
+---
+
+## 011 — Default categories are copied to each User
+
+Date: 2026-10-20
+Status: decided
+
+Decision: every Category belongs to one User (`user_id` not null). At sign-up,
+the default set ("Food", "Rent", …) is copied into the new User's own Categories.
+
+Alternatives considered: shared defaults, with one row per default and
+`user_id = NULL` for everyone.
+
+Why: a rename or delete must only affect my own Categories. With shared rows,
+renaming "Food" would rename it for every User, so shared Categories couldn't
+be edited at all.

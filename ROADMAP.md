@@ -14,9 +14,9 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.1 — Entities, attributes, keys
-Last session:     2026-10-20 (S1.1 min session)
-Progress:         4 / 102 sessions
+Current session:  S1.2 — Relationships & foreign keys
+Last session:     2026-10-20 (S1.1)
+Progress:         5 / 102 sessions
 Streak:           1 day
 ```
 
@@ -142,7 +142,7 @@ behind a load balancer (Stage 9).
 changing a schema with data in it isn't.
 **Interview Q:** "Walk me through your data model. Why is it shaped that way?"
 
-- [ ] **S1.1 — Entities, attributes, keys**
+- [x] **S1.1 — Entities, attributes, keys**
   - *Concept:* An entity is a *thing* you store (User, Account, Category,
     Transaction). Primary key = its unique identity. Natural keys (email) vs
     surrogate keys (id). Why every row needs an id that never changes.
@@ -799,3 +799,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-09-28 — S0.3 — curl -v: DNS → IP → TCP handshake → TLS handshake → HTTP request → server → response (status, headers, JSON body)
 2026-10-20 — S0.4 — 3 tiers + Supabase Auth in docs/architecture.md; React runs on the user's machine so it's untrusted; the token goes React → Backend, which checks it
 2026-10-20 — S1.1 (min) — surrogate id vs natural key (email): FKs would break if email changed; User started in docs/data-model.md; passwords live hashed in Supabase Auth, not our table
+2026-10-20 — S1.1 — all 4 entities in docs/data-model.md; FK lives on the many side; uuid ids; numeric for money; balance calculated, not stored; unique per user; decided 007 (SET NULL) and 011 (copied default categories)
