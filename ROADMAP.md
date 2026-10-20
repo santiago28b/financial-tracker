@@ -15,7 +15,7 @@ deployed app with AI features that you can defend in an interview.
 
 ```
 Current session:  S1.1 — Entities, attributes, keys
-Last session:     2026-10-20 (S0.4)
+Last session:     2026-10-20 (S1.1 min session)
 Progress:         4 / 102 sessions
 Streak:           1 day
 ```
@@ -798,3 +798,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-09-28 — S0.2 — venv + pip freeze → requirements.txt; transitive deps get pinned too; rebuilt venv from scratch
 2026-09-28 — S0.3 — curl -v: DNS → IP → TCP handshake → TLS handshake → HTTP request → server → response (status, headers, JSON body)
 2026-10-20 — S0.4 — 3 tiers + Supabase Auth in docs/architecture.md; React runs on the user's machine so it's untrusted; the token goes React → Backend, which checks it
+2026-10-20 — S1.1 (min) — surrogate id vs natural key (email): FKs would break if email changed; User started in docs/data-model.md; passwords live hashed in Supabase Auth, not our table

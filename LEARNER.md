@@ -24,6 +24,7 @@ Evidence:
 - 2026-10-20 — self-reported.
 - 2026-10-20 — S0.4: skipped the ritual and drew first; the ritual wasn't clear
   until it was shown with an example. Did it once that happened.
+- 2026-10-20 — S1.1 (min): started docs/data-model.md from blank without help.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -37,6 +38,7 @@ Streak lives in ROADMAP "You are here".
 Evidence:
 - 2026-09-28 → 2026-10-20 — 3-week gap after S0.3 (classes).
 - 2026-10-20 — back: S0.4 done in one sitting.
+- 2026-10-20 — took a minimum session instead of skipping the day.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -54,6 +56,8 @@ Evidence:
   (DNS → TCP → TLS → HTTP).
 - 2026-10-20 — S0.4: got the login flow right after one question: the token
   travels React → Backend, and the Backend checks it.
+- 2026-10-20 — S1.1 (min): reasoned that our table shouldn't store passwords
+  because Supabase Auth keeps the hash.
 
 ---
 
