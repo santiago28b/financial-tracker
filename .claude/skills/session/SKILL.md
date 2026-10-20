@@ -34,7 +34,7 @@ point that out. Check understanding with one question they answer in their own w
 - When they're stuck: ask for expected / actual / ruled out first, then climb the
   **hint ladder** one rung per request: L1 question → L2 concept + doc → L3
   pseudocode. Stop at L3.
-- Solo reps (`S#.R`): stay out. Only take part in the debrief afterwards.
+- Solo reps (`S#.R`): point them to their brief in `docs/solo-reps.md`, then stay out. Only take part in the debrief afterwards.
 - A new idea mid-session goes in `BACKLOG.md`.
 
 Done when the session's "Done when" in ROADMAP is met and shown to you (test

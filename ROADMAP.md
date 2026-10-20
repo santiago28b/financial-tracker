@@ -53,7 +53,8 @@ Update this block at the end of every session.
   re-read the concept, write one test, or explain yesterday's code out loud.
 - **Solo reps (`S#.R`):** at the end of Stages 2, 3, 4, 6 and 8. A blank folder,
   no Claude at all, 60 minutes, something unrelated. Afterwards, write down where
-  you got stuck. This is the proof you can build alone.
+  you got stuck. This is the proof you can build alone. Briefs and rules:
+  [docs/solo-reps.md](docs/solo-reps.md).
 - **Frontend (Stage 5):** Claude writes the React. The session only counts once
   you explain the code back in your own words, or make one small change yourself.
 - **New idea mid-session?** It goes in `BACKLOG.md`, not into today.
