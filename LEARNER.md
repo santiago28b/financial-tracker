@@ -44,6 +44,7 @@ it gets rewritten or deleted.
 Evidence:
 - 2026-10-20 — S0.4: `docs/architecture.md` has a Mermaid block I couldn't
   explain. Delete it, or learn it, before the next session.
+- 2026-10-20 — Mermaid block deleted; the plain-text diagram I wrote stays.
 
 ---
 
