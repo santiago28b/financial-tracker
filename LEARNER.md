@@ -1,0 +1,59 @@
+# Learner profile
+
+Who I am as a learner, what I'm working on, and the drills that turn weaknesses
+into strengths. Claude reads this at the start of every session and updates it
+at the end. I can edit it too. It's mine.
+
+**Goal:** a full-time backend role by 2027. Build projects on my own, without
+blindly trusting AI.
+
+**Background:** basic programming, Git, SQL, terminal, HTTP. No system design yet.
+LeetCode practised separately.
+
+---
+
+## Weaknesses → drills
+
+Each one has evidence (dated, from real sessions) so we can see the trend.
+
+### 1. Starting from a blank file / not knowing how to begin
+Drill: the **start-up ritual** (ROADMAP "How a session works", step 3) before
+every build: 3 lines of plain English → signature → one failing test or expected
+print. Solo reps (`S#.R`) test it without help.
+Evidence:
+- 2026-10-20 — self-reported.
+
+### 2. Giving up when stuck
+Drill: write expected / actual / ruled out first, then the **hint ladder**
+(L1 question → L2 concept + doc → L3 pseudocode). Log the highest rung each session.
+Evidence:
+- 2026-10-20 — self-reported.
+
+### 3. Consistency
+Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
+Streak lives in ROADMAP "You are here".
+Evidence:
+- 2026-09-28 → 2026-10-20 — 3-week gap after S0.3 (classes).
+
+---
+
+## Strengths
+
+- 2026-09-28 — finished S0.1–S0.3 in one day; explains the request lifecycle
+  (DNS → TCP → TLS → HTTP).
+
+---
+
+## Hint ladder log
+
+One line per session where a hint was used: `date — session — highest rung — what it was about`.
+
+<!-- newest at the bottom -->
+
+---
+
+## Solo rep log
+
+One entry per `S#.R`: `date — rep — finished? — where I got stuck — what I'd do differently`.
+
+<!-- newest at the bottom -->

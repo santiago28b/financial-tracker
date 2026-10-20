@@ -1,8 +1,13 @@
 # Roadmap — Learning Full-Stack by Building the Finance Tracker
 
-A class-style course, 30 minutes a day. Each session is **~10 min concept** (the
-what and the why) then **~20 min build**. `PLAN.md` is the design reference;
-`DECISIONS.md` is where your reasoning lives; this file is **where we are**.
+A class-style course, 30–45 minutes a day. Each session is **~10 min concept**
+(the what and the why) then **~20–35 min build**. `PLAN.md` is the design
+reference; `DECISIONS.md` is where your reasoning lives; `LEARNER.md` tracks your
+weaknesses and drills; `GLOSSARY.md` is the shared vocabulary; this file is
+**where we are**.
+
+**The goal:** be able to build projects on your own, and own every line of a
+deployed app with AI features that you can defend in an interview.
 
 ---
 
@@ -11,7 +16,8 @@ what and the why) then **~20 min build**. `PLAN.md` is the design reference;
 ```
 Current session:  S0.4 — Checkpoint: the 3-tier architecture
 Last session:     2026-09-28 (S0.3)
-Progress:         3 / 88 sessions
+Progress:         3 / 102 sessions
+Streak:           0 days
 ```
 
 Update this block at the end of every session.
@@ -20,20 +26,34 @@ Update this block at the end of every session.
 
 ## How a session works
 
-1. Start by telling Claude "next session". Claude reads this file and opens the
-   first unchecked session.
+1. Type `/session` (or "next session"). Claude reads this file, `LEARNER.md` and
+   `GLOSSARY.md`, then opens the first unchecked session.
 2. **Concept (10m):** Claude explains the idea in a few sentences + one doc link.
    Ask questions until you could explain it to a friend.
-3. **Build (20m):** you do the task. Backend and database: **you write every
-   line.** Claude asks questions and gives hints, never code.
-4. **Check:** show your work. Claude reviews with questions, not fixes.
-5. **Close:** tick the box, update "You are here", add one line to the Progress
-   log. Commit.
+3. **Start-up ritual (3m), before any code:**
+   1. Write in plain English, in 3 lines, what the code should do.
+   2. Write the function signature (or file name + first line).
+   3. Write one failing test, or one `print` with the output you expect.
+4. **Build (20–30m):** you do the task. Backend, database and AI: **you write
+   every line.** Claude asks questions and gives hints, never code.
+5. **Check:** show your work. Claude reviews with questions, not fixes.
+6. **Close:** tick the box, update "You are here" and the streak, add one line to
+   the Progress log, and update `LEARNER.md`. Commit.
 
 **Rules**
 
-- **Stuck more than 10 minutes?** Write out: what I expected / what happened /
-  what I've ruled out. Then ask.
+- **Stuck?** First write: what I expected / what happened / what I've ruled out.
+  Then ask for a hint. Claude climbs the **hint ladder** one rung at a time:
+  - **L1** — a question that points at the problem
+  - **L2** — the concept name + a doc link
+  - **L3** — pseudocode in plain English
+  
+  Never code. The highest rung used is logged in `LEARNER.md`.
+- **Minimum session:** on a bad day, 10 minutes counts and keeps the streak:
+  re-read the concept, write one test, or explain yesterday's code out loud.
+- **Solo reps (`S#.R`):** at the end of Stages 2, 3, 4, 6 and 8. A blank folder,
+  no Claude at all, 60 minutes, something unrelated. Afterwards, write down where
+  you got stuck. This is the proof you can build alone.
 - **Frontend (Stage 5):** Claude writes the React. The session only counts once
   you explain the code back in your own words, or make one small change yourself.
 - **New idea mid-session?** It goes in `BACKLOG.md`, not into today.
@@ -73,7 +93,7 @@ replace it without breaking the others.
 
 **Stateless API:** the FastAPI server keeps nothing in memory between requests.
 Everything lives in the DB or the token. That's what lets you later run 5 copies
-behind a load balancer (Stage 8).
+behind a load balancer (Stage 9).
 
 ---
 
@@ -224,6 +244,10 @@ changing a schema with data in it isn't.
   - *Done when:* `pytest` is green and `domain/` imports no web or DB library.
     Commit.
 
+- [ ] **S2.R — Solo rep:** from a blank folder, no Claude, 60 min: a `grades`
+  module (add a grade, average, letter grade) with pytest tests, edge cases
+  included. Log where you got stuck in `LEARNER.md`.
+
 ---
 
 ## Stage 3 — Persistence (PLAN Phase 2)
@@ -322,6 +346,10 @@ changing a schema with data in it isn't.
   - *Done when:* restart everything and the data is still there, and migrations
     roll back and forward cleanly. Commit.
 
+- [ ] **S3.R — Solo rep:** no Claude, 60 min: in a fresh SQLite or Supabase
+  schema, model a library (books, members, loans) with PKs, FKs and one
+  aggregate query. Log where you got stuck in `LEARNER.md`.
+
 ---
 
 ## Stage 4 — The REST API (PLAN Phase 3)
@@ -418,6 +446,10 @@ changing a schema with data in it isn't.
   - *Build:* Add CORS middleware allowing `http://localhost:5173` only. Enter a
     real month of spending via `/docs`.
   - *Done when:* PLAN Phase 3's "Done when" is met. Commit.
+
+- [ ] **S4.R — Solo rep:** from a blank folder, no Claude, 60 min: a FastAPI
+  bookmarks API (create, list, delete) with correct status codes and one test.
+  Log where you got stuck in `LEARNER.md`.
 
 ---
 
@@ -520,6 +552,10 @@ explain every file back.
   - *Build:* Update DECISIONS: why the user id comes from the token, never the body.
   - *Done when:* explained out loud. Commit.
 
+- [ ] **S6.R — Solo rep:** no Claude, 60 min: add a dependency to the
+  bookmarks API that rejects requests without a valid token, and scope the list
+  to the token's user. Log where you got stuck in `LEARNER.md`.
+
 ---
 
 ## Stage 7 — Ship it (PLAN Phase 6 + operations)
@@ -575,30 +611,105 @@ explain every file back.
 
 ---
 
-## Stage 8 — Scaling *this* app (system design, applied)
+## Stage 8 — AI features
+**Goal:** an LLM feature you can measure, and an agent that uses *your* API as tools.
+You write every line (backend rule). Provider: Claude API with a monthly spend cap
+(DECISIONS 009–010).
+**Interview Qs:** "How do you know your AI feature works?" "How does tool use work?" "What's prompt injection, and how did you defend against it?"
+
+- [ ] **S8.1 — How LLMs behave**
+  - *Concept:* Tokens, context window, cost per token, latency, temperature. Why
+    the same prompt can give different answers, and what that means for testing.
+  - *Build:* In `docs/ai.md`, estimate the cost of categorizing 1,000
+    Transactions with Haiku. Set a spend cap in the Anthropic console.
+  - *Done when:* you can say what one categorization costs, roughly.
+
+- [ ] **S8.2 — First API call**
+  - *Concept:* An LLM call is just an HTTP request (Stage 0 again). The API key
+    is a secret (S7.1).
+  - *Build:* Install the `anthropic` SDK. A script sends one Transaction
+    description and prints the reply. The key comes from the environment.
+  - *Done when:* it works, and `git grep` finds no key.
+
+- [ ] **S8.3 — Structured output**
+  - *Concept:* Free text can't be trusted by code. Ask for JSON in a fixed shape
+    and validate it with Pydantic. Treat the reply like untrusted user input.
+  - *Build:* `backend/ai/categorize.py`: description + the User's Categories in,
+    `{category, confidence}` out. Invalid replies raise a domain exception.
+  - *Done when:* a test feeds it a malformed reply (mock the client) and it fails safely.
+
+- [ ] **S8.4 — Auto-categorize on create**
+  - *Concept:* Where AI sits in the layers (a service, behind an interface, so
+    tests don't call the real API). Thresholds. A User's correction always wins.
+  - *Build:* `POST /api/transactions` without a category gets one suggested.
+    Below the confidence threshold it stays uncategorised. If the API is down, the
+    Transaction still saves.
+  - *Done when:* the create still works with the AI turned off.
+
+- [ ] **S8.5 — The eval set**
+  - *Concept:* Evals are tests for non-deterministic code. A labelled dataset +
+    a score, instead of `assert ==`.
+  - *Build:* `evals/categorize.jsonl` with 50 labelled Transactions (include
+    hard ones: "AMZN MKTP", refunds, transfers). A script prints accuracy.
+  - *Done when:* you have a baseline number written in `docs/ai.md`.
+
+- [ ] **S8.6 — Improve against the eval**
+  - *Concept:* Prompt changes are code changes. Few-shot examples. Measure, don't guess.
+  - *Build:* Two prompt changes, each scored. Keep the winner. Add the eval to CI
+    with a minimum accuracy.
+  - *Done when:* before/after numbers are in `docs/ai.md`, and CI fails if accuracy drops.
+
+- [ ] **S8.7 — Tool use**
+  - *Concept:* The model doesn't run code; it *asks* you to call a function, you
+    run it and send the result back. Tool schemas are API contracts (S4.4 again).
+  - *Build:* Define `get_summary(month)` and `get_transactions(start, end)` as
+    tools, wired to your existing service layer.
+  - *Done when:* one question causes one tool call that you can see in the logs.
+
+- [ ] **S8.8 — The agent loop**
+  - *Concept:* Loop: model → tool call → result → model, until it answers. Max
+    iterations. The User id comes from the JWT, never from the model (IDOR, S6.6).
+  - *Build:* `POST /api/ask` answers "why was October higher than September?"
+    (Claude builds the chat UI.)
+  - *Done when:* User A's question can never read User B's data, and a test proves it.
+
+- [ ] **S8.9 — Checkpoint: cost, failure, injection**
+  - *Concept:* Prompt injection: a Transaction description saying "ignore your
+    instructions". Rate limits and timeouts on the LLM call.
+  - *Build:* Try to inject through a description. Log tokens per request. Write
+    DECISIONS for what you defend against and what you accept.
+  - *Done when:* you can whiteboard the agent loop and its trust boundaries. Commit.
+
+- [ ] **S8.R — Solo rep:** from a blank folder, no Claude, 60 min: a script that
+  sends a list of movie titles to the LLM and gets back validated `{title, genre}`
+  JSON. Log where you got stuck in `LEARNER.md`.
+
+---
+
+## Stage 9 — Scaling *this* app (system design, applied)
 **Goal:** understand what changes at 1,000× users, by actually doing it to your app.
 **Interview Q:** "How would you scale your app?" You'll answer from experience, not theory.
 
-- [ ] **S8.1 — Back-of-envelope estimates**
+- [ ] **S9.1 — Back-of-envelope estimates**
   - *Concept:* Estimating QPS, storage, and read/write ratio. Where the bottleneck
     is *first*.
   - *Build:* In `docs/scaling.md`, estimate the numbers for 100k users entering
     3 transactions/day.
   - *Done when:* you know if you're read-heavy or write-heavy, and why it matters.
 
-- [ ] **S8.2 — Load testing**
+- [ ] **S9.2 — Load testing**
   - *Concept:* Latency vs throughput, p50/p95/p99.
   - *Build:* A `locust` script hitting `/summary` and `POST /transactions`.
   - *Done when:* you have baseline p95 numbers written down.
 
-- [ ] **S8.3 — Stateless & horizontal scaling**
+- [ ] **S9.3 — Stateless & horizontal scaling**
   - *Concept:* Vertical (bigger box) vs horizontal (more boxes). Load balancers.
     Why statelessness makes horizontal scaling easy.
   - *Build:* Run 2 API instances locally behind a simple proxy (or 2 replicas on
     your host). Check that nothing breaks.
   - *Done when:* you can explain what *would* break if you stored anything in memory.
 
-- [ ] **S8.4 — Concurrency inside the server**
+- [ ] **S9.4 — Concurrency inside the server**
   - *Concept:* Processes vs threads vs async. The event loop. `async def` vs
     `def` in FastAPI (a threadpool runs the plain `def` routes). Why one blocking call
     inside `async def` freezes every request. The GIL in plain words.
@@ -607,44 +718,44 @@ explain every file back.
   - *Done when:* you can explain the difference in the numbers and answer
     "threads vs async?" without notes.
 
-- [ ] **S8.5 — Connection pooling**
+- [ ] **S9.5 — Connection pooling**
   - *Concept:* DB connections are expensive and limited. Pooler vs direct
     (remember S3.1).
   - *Build:* Switch the app to the pooled connection string, tune the pool size,
     and re-run the load test.
   - *Done when:* you can explain what happens at 10 instances × 20 connections.
 
-- [ ] **S8.6 — Caching the summary**
+- [ ] **S9.6 — Caching the summary**
   - *Concept:* Cache-aside. TTL. "There are only two hard things…" Where caches
     live (in-process vs Redis).
   - *Build:* Cache `/summary` per user+month in Redis (Upstash free tier).
   - *Done when:* p95 drops, and you measured it.
 
-- [ ] **S8.7 — Cache invalidation**
+- [ ] **S9.7 — Cache invalidation**
   - *Build:* A new or edited transaction invalidates that month's cache entry.
     Write a test that proves stale data can't be served.
   - *Done when:* the test is green.
 
-- [ ] **S8.8 — Rate limiting**
+- [ ] **S9.8 — Rate limiting**
   - *Concept:* Token bucket. Protecting the API from abuse and from your own
     frontend bugs. 429.
   - *Build:* Per-user rate limit on write endpoints.
   - *Done when:* hammering the endpoint returns 429.
 
-- [ ] **S8.9 — Background jobs (CSV import)**
+- [ ] **S9.9 — Background jobs (CSV import)**
   - *Concept:* Why slow work leaves the request/response cycle. Queues and
     workers. 202 Accepted + a status endpoint.
   - *Build:* Pull "Bank CSV import" from BACKLOG. Upload → job → worker parses
     and inserts.
   - *Done when:* uploading a 5k-row CSV returns instantly and finishes in the background.
 
-- [ ] **S8.10 — Idempotency keys**
+- [ ] **S9.10 — Idempotency keys**
   - *Concept:* A double-click or a network retry must not create two
     transactions. How Stripe does it.
   - *Build:* Support an `Idempotency-Key` header on `POST /transactions`.
   - *Done when:* sending the same request twice creates one row.
 
-- [ ] **S8.11 — Checkpoint: observability & the design doc**
+- [ ] **S9.11 — Checkpoint: observability & the design doc**
   - *Concept:* Metrics, logs, traces: the three pillars.
   - *Build:* Finish `docs/scaling.md` as a mini design doc: the current
     architecture, bottlenecks found, what you changed, what you'd do next
@@ -653,25 +764,25 @@ explain every file back.
 
 ---
 
-## Stage 9 — Job-ready
+## Stage 10 — Job-ready
 **Goal:** turn the project into interviews.
 
-- [ ] **S9.1 — README**
+- [ ] **S10.1 — README**
   - *Build:* A README with what it does, the architecture diagram, how to run it,
     key decisions (linking DECISIONS.md), the live URL, and screenshots.
   - *Done when:* a stranger could run it locally.
 
-- [ ] **S9.2 — The 5-minute walkthrough**
+- [ ] **S10.2 — The 5-minute walkthrough**
   - *Build:* Record yourself explaining the app, one request's journey, and one
     hard decision.
   - *Done when:* you watch it back and would hire yourself.
 
-- [ ] **S9.3 — System design mock**
+- [ ] **S10.3 — System design mock**
   - *Build:* Claude interviews you: "Design a personal finance app for 1M users."
     You answer using *your* app.
   - *Done when:* you drive the whole conversation.
 
-- [ ] **S9.4 — Stage-by-stage question drill**
+- [ ] **S10.4 — Stage-by-stage question drill**
   - *Build:* Answer every "Interview Q" in this file out loud.
   - *Done when:* no answer needs notes. 🎓
 

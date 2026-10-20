@@ -154,3 +154,46 @@ Consequences / follow-ups:
   pay before the URL goes on a résumé.
 - Not learning bcrypt / session design / token refresh. Accepted; possible
   throwaway weekend project later to fill the gap.
+
+---
+
+## 009 — AI features come before scaling
+
+Date: 2026-10-20
+Status: decided
+
+Decision: A new Stage 8 (AI features: auto-categorize + an "ask your money"
+agent) comes right after deploy (Stage 7). Scaling moves to Stage 9.
+
+Alternatives considered:
+
+- AI last, after scaling. Scaling is "more senior", but the résumé version would
+  have no AI if time runs out.
+- AI before deploy. Gets to the fun part sooner, but it would sit on an API with
+  no auth and no CI, so the agent couldn't be scoped to a User or evaluated in CI.
+
+Why:
+
+- The deployed, résumé-linked version should include the AI feature as early as
+  possible.
+- Auto-categorize works on manually entered Transactions, so it doesn't need CSV
+  import (Stage 9) first.
+- The agent needs auth (Stage 6) so that the User id comes from the JWT, never
+  from the model.
+
+---
+
+## 010 — Claude API as the LLM provider, with evals
+
+Date: 2026-10-20
+Status: decided
+
+Decision: Claude API. Haiku for categorization (cheap, fast), a larger model for
+the agent. A hard monthly spend cap. Categorization accuracy is measured by an
+eval set that runs in CI.
+
+Alternatives considered: OpenAI / a local model via Ollama.
+
+Why: Same provider I already use, a few dollars a month at this scale. The eval
+set is what makes the feature defensible in an interview: "I measured it" beats
+"it seems to work".

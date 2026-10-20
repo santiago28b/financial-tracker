@@ -74,6 +74,7 @@ paid tier before the URL goes anywhere.
 5. **Phase 4** — React
 6. **Phase 5** — Supabase Auth + JWT verification
 7. **Phase 6** — deploy
+8. **Phase 7** — AI features (auto-categorize, then an "ask your money" agent)
 
 The one that's easy to get wrong: **the database comes before the frontend, not
 after.** Login can wait until the end, but persistence can't — a frontend built
@@ -248,6 +249,28 @@ Supabase.
 
 Then put the URL and the repo on your résumé. One deployed app you can talk
 through in detail beats three half-finished ones.
+
+---
+
+## Phase 7 — AI features
+
+Two features on top of the deployed app (DECISIONS 009–010):
+
+- **Auto-categorize:** a new Transaction without a Category gets one suggested
+  by an LLM, as validated structured output with a confidence score. Low
+  confidence stays uncategorised; a User's correction always wins; if the LLM is
+  down, the Transaction still saves.
+- **"Ask your money" agent:** a question like "why was October higher?" is
+  answered by an LLM that calls your own service functions as tools. The User id
+  comes from the JWT, never from the model.
+
+The part that makes it portfolio-worthy is the **eval set**: 50 labelled
+Transactions, an accuracy score, before/after numbers for each prompt change,
+and CI failing if accuracy drops. You write all of it; the AI feature falls
+under the same rule as the rest of the backend.
+
+**Done when:** you can show the accuracy number, the cost per request, and
+whiteboard the agent loop with its trust boundaries.
 
 ---
 
