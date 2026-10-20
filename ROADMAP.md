@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S0.4 — Checkpoint: the 3-tier architecture
-Last session:     2026-09-28 (S0.3)
-Progress:         3 / 102 sessions
-Streak:           0 days
+Current session:  S1.1 — Entities, attributes, keys
+Last session:     2026-10-20 (S0.4)
+Progress:         4 / 102 sessions
+Streak:           1 day
 ```
 
 Update this block at the end of every session.
@@ -127,7 +127,7 @@ behind a load balancer (Stage 9).
     headers, body.
   - *Done when:* you can draw the lifecycle and explain it without notes.
 
-- [ ] **S0.4 — Checkpoint: the 3-tier architecture**
+- [x] **S0.4 — Checkpoint: the 3-tier architecture**
   - *Concept:* Re-read the architecture section above. Presentation / application
     / data tiers.
   - *Build:* Redraw the diagram from memory. Under each box, write one thing it
@@ -797,3 +797,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-09-28 — S0.1 — git init, .gitignore before first commit, pushed to GitHub (santiago28b/financial-tracker)
 2026-09-28 — S0.2 — venv + pip freeze → requirements.txt; transitive deps get pinned too; rebuilt venv from scratch
 2026-09-28 — S0.3 — curl -v: DNS → IP → TCP handshake → TLS handshake → HTTP request → server → response (status, headers, JSON body)
+2026-10-20 — S0.4 — 3 tiers + Supabase Auth in docs/architecture.md; React runs on the user's machine so it's untrusted; the token goes React → Backend, which checks it

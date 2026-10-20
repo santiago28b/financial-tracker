@@ -22,6 +22,8 @@ every build: 3 lines of plain English → signature → one failing test or expe
 print. Solo reps (`S#.R`) test it without help.
 Evidence:
 - 2026-10-20 — self-reported.
+- 2026-10-20 — S0.4: skipped the ritual and drew first; the ritual wasn't clear
+  until it was shown with an example. Did it once that happened.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -34,6 +36,14 @@ Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
 Streak lives in ROADMAP "You are here".
 Evidence:
 - 2026-09-28 → 2026-10-20 — 3-week gap after S0.3 (classes).
+- 2026-10-20 — back: S0.4 done in one sitting.
+
+### 4. Including work I can't explain
+Drill: before a session closes, explain any one line Claude picks. If I can't,
+it gets rewritten or deleted.
+Evidence:
+- 2026-10-20 — S0.4: `docs/architecture.md` has a Mermaid block I couldn't
+  explain. Delete it, or learn it, before the next session.
 
 ---
 
@@ -41,6 +51,8 @@ Evidence:
 
 - 2026-09-28 — finished S0.1–S0.3 in one day; explains the request lifecycle
   (DNS → TCP → TLS → HTTP).
+- 2026-10-20 — S0.4: got the login flow right after one question: the token
+  travels React → Backend, and the Backend checks it.
 
 ---
 
