@@ -27,12 +27,17 @@ Evidence:
 - 2026-10-20 — S1.1 (min): started docs/data-model.md from blank without help.
 - 2026-10-20 — S1.1: first ritual attempt was one generic line; needed 3 rounds of
   questions to get the entity shape down before writing fields.
+- 2026-10-21 — S1.2: ritual again started as one generic line; got to 3 lines
+  with 2 questions. Copied Claude's example for step 3, then wrote a real one
+  (Category ↔ Transaction) when asked.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
 (L1 question → L2 concept + doc → L3 pseudocode). Log the highest rung each session.
 Evidence:
 - 2026-10-20 — self-reported.
+- 2026-10-21 — S1.2: said "idk" / "not sure what you mean" twice but kept going
+  after the next hint each time; didn't write expected / actual / ruled out first.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -53,6 +58,9 @@ Evidence:
 - 2026-10-20 — S1.1: pasted Claude's sentence into data-model.md, then explained
   it in own words ("it already reaches the user through account_id"). Had
   Claude write DECISIONS 007 and 011 from my answers; re-read them.
+- 2026-10-21 — S1.2: explained `Ref: users.id < accounts.user_id` correctly.
+  erd.dbml has comments I didn't write in session; next time, check that I can
+  explain them too.
 
 ---
 
@@ -66,6 +74,9 @@ Evidence:
   because Supabase Auth keeps the hash.
 - 2026-10-20 — S1.1: came up with the opening-balance Transaction on my own;
   spotted that a stored balance is redundancy.
+- 2026-10-21 — S1.2: worked out alone why `transaction_id` on Category makes
+  duplicate category names; fixed the ERD layout and the per-User uniqueness
+  in one round.
 
 ---
 
@@ -75,6 +86,7 @@ One line per session where a hint was used: `date — session — highest rung �
 
 <!-- newest at the bottom -->
 2026-10-20 — S1.1 — L2 — column types and ON DELETE SET NULL (Postgres docs)
+2026-10-21 — S1.2 — L2 — why the FK sits on the many side (1NF); DBML composite indexes
 
 ---
 

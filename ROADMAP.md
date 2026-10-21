@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.2 — Relationships & foreign keys
-Last session:     2026-10-20 (S1.1)
-Progress:         5 / 102 sessions
-Streak:           1 day
+Current session:  S1.3 — Money & dates (DECISIONS 001 + 005)
+Last session:     2026-10-21 (S1.2)
+Progress:         6 / 102 sessions
+Streak:           2 days
 ```
 
 Update this block at the end of every session.
@@ -149,7 +149,7 @@ changing a schema with data in it isn't.
   - *Build:* List each entity's fields, types, required/optional, unique.
   - *Done when:* `docs/data-model.md` has all four entities.
 
-- [ ] **S1.2 — Relationships & foreign keys**
+- [x] **S1.2 — Relationships & foreign keys**
   - *Concept:* One-to-many (a User has many Transactions), many-to-many, and
     cardinality. A foreign key is a pointer the DB *guarantees* is valid.
   - *Build:* Draw the ERD with crow's-foot notation (dbdiagram.io or paper).
@@ -800,3 +800,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-20 — S0.4 — 3 tiers + Supabase Auth in docs/architecture.md; React runs on the user's machine so it's untrusted; the token goes React → Backend, which checks it
 2026-10-20 — S1.1 (min) — surrogate id vs natural key (email): FKs would break if email changed; User started in docs/data-model.md; passwords live hashed in Supabase Auth, not our table
 2026-10-20 — S1.1 — all 4 entities in docs/data-model.md; FK lives on the many side; uuid ids; numeric for money; balance calculated, not stored; unique per user; decided 007 (SET NULL) and 011 (copied default categories)
+2026-10-21 — S1.2 — ERD in docs/ERD.png + docs/erd.dbml; cardinality read both ways (Category 0..1 —< 0..N Transactions); FK on the many side because one cell holds one value (1NF); composite unique (user_id, alias) and (user_id, name)

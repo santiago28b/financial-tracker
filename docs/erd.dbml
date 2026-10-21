@@ -1,0 +1,50 @@
+Table users {
+  id uuid [pk, not null]
+  name varchar [not null]
+  last_name varchar [not null]
+  email varchar [unique, not null]
+}
+
+Table accounts {
+  account_id uuid [pk, unique, not null]
+  user_id uuid [not null]
+  type varchar [not null] // enum: checking, saving, credit card
+  alias text [default: 'checking-1']
+
+  indexes {
+    (user_id, alias) [unique]
+  }
+}
+
+Table categories {
+  category_id uuid [pk, unique, not null]
+  user_id uuid [not null]
+  name text [not null]
+
+  indexes {
+    (user_id, name) [unique]
+  }
+}
+
+Table transactions {
+  transaction_id uuid [pk, not null]
+  account_id uuid [not null]
+  category_id uuid [null]
+  description text
+  amount decimal [not null]
+  date date [not null]
+}
+
+// Relationships & Cardinality
+
+// User to Account: 1-to-Many (One user can have multiple accounts)
+Ref: users.id < accounts.user_id
+
+// User to Category: 1-to-Many (One user can have multiple categories)
+Ref: users.id < categories.user_id
+
+// Account to Transaction: 1-to-Many (One account can have multiple transactions)
+Ref: accounts.account_id < transactions.account_id
+
+// Category to Transaction: 1-to-Many (One category can be applied to multiple transactions, nullable on delete set null)
+Ref: categories.category_id < transactions.category_id
