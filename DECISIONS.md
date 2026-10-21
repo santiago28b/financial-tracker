@@ -18,17 +18,17 @@ Why:
 
 ## 001 — How to store money amounts
 
-Date:
-Status: open
+Date: 2026-10-21
+Status: decided
 
 The question: floats are broken for money (`0.1 + 0.2 != 0.3`). Integer cents,
 or Python `Decimal` with Postgres `Numeric`?
 
 Alternatives: integer cents / Decimal+Numeric / float (no)
 
-Decision:
+Decision: Decimal in Python, Numeric in Postgres.
 
-Why:
+Why: cents means converting ×100 everywhere.
 
 ---
 
@@ -81,15 +81,15 @@ Why:
 
 ## 005 — Date vs datetime for a transaction
 
-Date:
-Status: open
+Date: 2026-10-21
+Status: decided
 
 A transaction's date is a calendar date. Storing a timestamp means timezone
 conversion can move a transaction into the previous month.
 
-Decision:
+Decision: date.
 
-Why:
+Why: timestamps shift to UTC.
 
 ---
 

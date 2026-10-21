@@ -30,6 +30,9 @@ Evidence:
 - 2026-10-21 — S1.2: ritual again started as one generic line; got to 3 lines
   with 2 questions. Copied Claude's example for step 3, then wrote a real one
   (Category ↔ Transaction) when asked.
+- 2026-10-21 — S1.3: ritual started with only step 3, but it was a real expected
+  output. Added the Decimal check and the 3 English lines when asked, with no
+  example to copy. Both predictions matched the shell.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -38,6 +41,7 @@ Evidence:
 - 2026-10-20 — self-reported.
 - 2026-10-21 — S1.2: said "idk" / "not sure what you mean" twice but kept going
   after the next hint each time; didn't write expected / actual / ruled out first.
+- 2026-10-21 — S1.3: didn't get stuck; no hints needed.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -61,6 +65,8 @@ Evidence:
 - 2026-10-21 — S1.2: explained `Ref: users.id < accounts.user_id` correctly.
   erd.dbml has comments I didn't write in session; next time, check that I can
   explain them too.
+- 2026-10-21 — S1.3: asked Claude to write DECISIONS 001/005 ("you know I get
+  it"). Instead dictated the decision + why in own words; Claude pasted them verbatim.
 
 ---
 
@@ -77,6 +83,8 @@ Evidence:
 - 2026-10-21 — S1.2: worked out alone why `transaction_id` on Category makes
   duplicate category names; fixed the ERD layout and the per-User uniqueness
   in one round.
+- 2026-10-21 — S1.3: predicted that Decimal(0.1) carries the float error before
+  running it; chose Numeric scale 2 with a reason.
 
 ---
 

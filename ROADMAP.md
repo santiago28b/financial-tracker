@@ -14,9 +14,9 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.3 — Money & dates (DECISIONS 001 + 005)
-Last session:     2026-10-21 (S1.2)
-Progress:         6 / 102 sessions
+Current session:  S1.4 — Transfers & splits (DECISIONS 002 + 004)
+Last session:     2026-10-21 (S1.3)
+Progress:         7 / 102 sessions
 Streak:           2 days
 ```
 
@@ -156,7 +156,7 @@ changing a schema with data in it isn't.
   - *Done when:* every line has a cardinality and you can say which side holds
     the foreign key.
 
-- [ ] **S1.3 — Money & dates (DECISIONS 001 + 005)**
+- [x] **S1.3 — Money & dates (DECISIONS 001 + 005)**
   - *Concept:* Floats can't represent 0.1 exactly. Integer cents vs `Decimal`. A
     calendar date vs a timestamp with a timezone.
   - *Build:* In a Python shell, prove `0.1 + 0.2 != 0.3`, then prove `Decimal`
@@ -801,3 +801,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-20 — S1.1 (min) — surrogate id vs natural key (email): FKs would break if email changed; User started in docs/data-model.md; passwords live hashed in Supabase Auth, not our table
 2026-10-20 — S1.1 — all 4 entities in docs/data-model.md; FK lives on the many side; uuid ids; numeric for money; balance calculated, not stored; unique per user; decided 007 (SET NULL) and 011 (copied default categories)
 2026-10-21 — S1.2 — ERD in docs/ERD.png + docs/erd.dbml; cardinality read both ways (Category 0..1 —< 0..N Transactions); FK on the many side because one cell holds one value (1NF); composite unique (user_id, alias) and (user_id, name)
+2026-10-21 — S1.3 — proved 0.1 + 0.2 != 0.3 and Decimal('0.1') + Decimal('0.2') == Decimal('0.3'); Decimal(0.1) inherits the float error, so amounts travel as strings; decided 001 (Decimal + Numeric, scale 2) and 005 (date, not timestamp)

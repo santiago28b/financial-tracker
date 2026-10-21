@@ -20,6 +20,14 @@ _Avoid_: Expense, record, entry
 A label a User puts on Transactions, owned by that User; defaults are copied to each User at sign-up.
 _Avoid_: Tag, type
 
+**Amount**:
+A Transaction's money value, exact to the cent: Decimal in Python, Numeric with scale 2 in Postgres. Never a float.
+_Avoid_: Price, value
+
+**Transaction date**:
+The calendar day a Transaction happened, stored as a date with no time or timezone.
+_Avoid_: Timestamp, datetime
+
 **Opening balance**:
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column
