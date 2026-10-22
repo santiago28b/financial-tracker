@@ -10,3 +10,4 @@ building it today.
 - Forecasting from recurring income and bills
 - Multi-user / shared household finances
 - Mobile layout
+- OOP solo rep: classes, encapsulation, interfaces (ABCs / Protocols), polymorphism, inheritance vs composition, and when a class beats a function (after S4.10)
