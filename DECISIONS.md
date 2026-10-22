@@ -34,8 +34,8 @@ Why: cents means converting ×100 everywhere.
 
 ## 002 — How transfers are modelled
 
-Date:
-Status: open
+Date: 2026-10-22
+Status: decided
 
 Moving $500 from checking to savings is not $500 of spending. If this isn't
 modelled, the "where did my money go" report is quietly wrong.
@@ -43,9 +43,10 @@ modelled, the "where did my money go" report is quietly wrong.
 Alternatives: a transaction type flag / two linked transactions netting to zero
 / a separate transfers table
 
-Decision:
+Decision: two linked rows with counterpart_transaction_id
 
-Why:
+Why: report skips them since it's not spending. Each account's balance still
+sums its own rows, no joins needed.
 
 ---
 
@@ -65,17 +66,17 @@ Why:
 
 ## 004 — Transaction splits
 
-Date:
-Status: open
+Date: 2026-10-22
+Status: decided
 
 One Costco trip is part groceries, part household goods. One category per
 transaction, or a set of line items each with their own?
 
 Note: changes the schema significantly, so decide now even if v2 builds it.
 
-Decision:
+Decision: no splits
 
-Why:
+Why: i dont think we will double putting stuff
 
 ---
 

@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.4 — Transfers & splits (DECISIONS 002 + 004)
-Last session:     2026-10-21 (S1.3)
-Progress:         7 / 102 sessions
-Streak:           2 days
+Current session:  S1.5 — Delete behaviour & history (DECISIONS 003 + 006 + 007)
+Last session:     2026-10-22 (S1.4)
+Progress:         8 / 102 sessions
+Streak:           3 days
 ```
 
 Update this block at the end of every session.
@@ -163,7 +163,7 @@ changing a schema with data in it isn't.
     fixes it. Fill in 001 and 005.
   - *Done when:* both are marked `decided`, with reasons.
 
-- [ ] **S1.4 — Transfers & splits (DECISIONS 002 + 004)**
+- [x] **S1.4 — Transfers & splits (DECISIONS 002 + 004)**
   - *Concept:* Modelling "movement of money" vs "spending". Double-entry intuition.
   - *Build:* Sketch each alternative's tables. Pick one for each. Fill in 002 and 004.
   - *Done when:* you can say why $500 checking→savings doesn't show up as spending.
@@ -802,3 +802,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-20 — S1.1 — all 4 entities in docs/data-model.md; FK lives on the many side; uuid ids; numeric for money; balance calculated, not stored; unique per user; decided 007 (SET NULL) and 011 (copied default categories)
 2026-10-21 — S1.2 — ERD in docs/ERD.png + docs/erd.dbml; cardinality read both ways (Category 0..1 —< 0..N Transactions); FK on the many side because one cell holds one value (1NF); composite unique (user_id, alias) and (user_id, name)
 2026-10-21 — S1.3 — proved 0.1 + 0.2 != 0.3 and Decimal('0.1') + Decimal('0.2') == Decimal('0.3'); Decimal(0.1) inherits the float error, so amounts travel as strings; decided 001 (Decimal + Numeric, scale 2) and 005 (date, not timestamp)
+2026-10-22 — S1.4 — a transfer is two linked Transactions (−500 / +500) joined by a self-referencing counterpart_transaction_id; the spending report skips them; is_transfer dropped as redundant; balance still sums each Account's own rows; decided 002 (linked rows) and 004 (no splits)

@@ -33,6 +33,8 @@ Evidence:
 - 2026-10-21 — S1.3: ritual started with only step 3, but it was a real expected
   output. Added the Decimal check and the 3 English lines when asked, with no
   example to copy. Both predictions matched the shell.
+- 2026-10-22 — S1.4: gave all 3 ritual lines in one go (first time), but line 1
+  named a solution (a flag) instead of a requirement. Chose text over a sketch.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -42,6 +44,8 @@ Evidence:
 - 2026-10-21 — S1.2: said "idk" / "not sure what you mean" twice but kept going
   after the next hint each time; didn't write expected / actual / ruled out first.
 - 2026-10-21 — S1.3: didn't get stuck; no hints needed.
+- 2026-10-22 — S1.4: didn't get stuck. Pushed back on the CSV trade-off ("we're
+  not doing that") until shown it's in PLAN.md and S9.9.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -67,6 +71,9 @@ Evidence:
   explain them too.
 - 2026-10-21 — S1.3: asked Claude to write DECISIONS 001/005 ("you know I get
   it"). Instead dictated the decision + why in own words; Claude pasted them verbatim.
+- 2026-10-22 — S1.4: said 002 was saved when it was empty, then asked Claude to
+  write it. Dictated instead, pasted verbatim. 004's Why ("i dont think we will
+  double putting stuff") is thin; it doesn't name the CSV trade-off.
 
 ---
 
@@ -85,6 +92,9 @@ Evidence:
   in one round.
 - 2026-10-21 — S1.3: predicted that Decimal(0.1) carries the float error before
   running it; chose Numeric scale 2 with a reason.
+- 2026-10-22 — S1.4: called is_transfer redundant right away once the link
+  column existed; argued two rows beat a transfers table because each Account's
+  balance still sums its own rows with no joins.
 
 ---
 
@@ -95,6 +105,7 @@ One line per session where a hint was used: `date — session — highest rung �
 <!-- newest at the bottom -->
 2026-10-20 — S1.1 — L2 — column types and ON DELETE SET NULL (Postgres docs)
 2026-10-21 — S1.2 — L2 — why the FK sits on the many side (1NF); DBML composite indexes
+2026-10-22 — S1.4 — L2 — self-referencing FK (Postgres constraints docs)
 
 ---
 

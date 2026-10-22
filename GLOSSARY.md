@@ -32,6 +32,10 @@ _Avoid_: Timestamp, datetime
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column
 
+**Transfer**:
+Money moved between two of a User's own Accounts: two Transactions (−X and +X) that point at each other via counterpart_transaction_id. Not spending.
+_Avoid_: Transfer flag, is_transfer
+
 **DB transaction**:
 A group of database writes that commit or roll back together. Always written with the "DB" prefix.
 _Avoid_: Transaction (unqualified)
