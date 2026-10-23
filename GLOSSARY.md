@@ -32,6 +32,10 @@ _Avoid_: Timestamp, datetime
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column
 
+**Archived account**:
+An Account the User has closed: hidden by setting archive_at, never deleted, so its Transactions stay. A real DELETE only happens when the whole User is removed.
+_Avoid_: Deleted account
+
 **Transfer**:
 Money moved between two of a User's own Accounts: two Transactions (−X and +X) that point at each other via counterpart_transaction_id. Not spending.
 _Avoid_: Transfer flag, is_transfer

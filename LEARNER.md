@@ -35,6 +35,10 @@ Evidence:
   example to copy. Both predictions matched the shell.
 - 2026-10-22 — S1.4: gave all 3 ritual lines in one go (first time), but line 1
   named a solution (a flag) instead of a requirement. Chose text over a sketch.
+- 2026-10-23 — S1.5: line 1 was a real requirement; lines 2–3 had the FK
+  direction backwards and named a solution ("updated"). Fixed both after one
+  question each. Asked "what specifically do you want me to do" twice; a filled-in
+  template unblocked it each time.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -46,6 +50,9 @@ Evidence:
 - 2026-10-21 — S1.3: didn't get stuck; no hints needed.
 - 2026-10-22 — S1.4: didn't get stuck. Pushed back on the CSV trade-off ("we're
   not doing that") until shown it's in PLAN.md and S9.9.
+- 2026-10-23 — S1.5: got tired mid-build and asked Claude to write the DBML
+  ("just do it, I'm tired of typing"). When offered a stop, chose to push through
+  and finished. Needed a concrete example (L3) for DBML Ref syntax; took 3 rounds.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -55,6 +62,8 @@ Evidence:
 - 2026-10-20 — back: S0.4 done in one sitting.
 - 2026-10-20 — took a minimum session instead of skipping the day.
 - 2026-10-20 — then turned it into a full 45-min S1.1.
+- 2026-10-23 — S1.5: 4-day streak. Finished the session while tired instead of
+  stopping.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -74,6 +83,10 @@ Evidence:
 - 2026-10-22 — S1.4: said 002 was saved when it was empty, then asked Claude to
   write it. Dictated instead, pasted verbatim. 004's Why ("i dont think we will
   double putting stuff") is thin; it doesn't name the CSV trade-off.
+- 2026-10-23 — S1.5: asked Claude to write 003/006 again. Dictated 006; 003
+  pasted from what I'd said earlier. Neither Why names what is given up (003:
+  grouping; 006: any record of the old amount). Explained the counterpart
+  cascade line correctly.
 
 ---
 
@@ -95,6 +108,9 @@ Evidence:
 - 2026-10-22 — S1.4: called is_transfer redundant right away once the link
   column existed; argued two rows beat a transfers table because each Account's
   balance still sums its own rows with no joins.
+- 2026-10-23 — S1.5: traced the delete chain once asked: User CASCADE → Account
+  → Transactions RESTRICT fails, so Transactions must cascade since day-to-day
+  Account removal is a soft delete. Spotted the missing counterpart column myself.
 
 ---
 
@@ -106,6 +122,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-20 — S1.1 — L2 — column types and ON DELETE SET NULL (Postgres docs)
 2026-10-21 — S1.2 — L2 — why the FK sits on the many side (1NF); DBML composite indexes
 2026-10-22 — S1.4 — L2 — self-referencing FK (Postgres constraints docs)
+2026-10-23 — S1.5 — L3 — DBML Ref syntax with [delete: ...] and a self-reference (books/sequel_of example)
 
 ---
 

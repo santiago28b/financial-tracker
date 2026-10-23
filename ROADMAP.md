@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.5 — Delete behaviour & history (DECISIONS 003 + 006 + 007)
-Last session:     2026-10-22 (S1.4)
-Progress:         8 / 102 sessions
-Streak:           3 days
+Current session:  S1.6 — Checkpoint
+Last session:     2026-10-23 (S1.5)
+Progress:         9 / 102 sessions
+Streak:           4 days
 ```
 
 Update this block at the end of every session.
@@ -168,7 +168,7 @@ changing a schema with data in it isn't.
   - *Build:* Sketch each alternative's tables. Pick one for each. Fill in 002 and 004.
   - *Done when:* you can say why $500 checking→savings doesn't show up as spending.
 
-- [ ] **S1.5 — Delete behaviour & history (DECISIONS 003 + 006 + 007)**
+- [x] **S1.5 — Delete behaviour & history (DECISIONS 003 + 006 + 007)**
   - *Concept:* `ON DELETE CASCADE` / `SET NULL` / `RESTRICT`. Soft delete. Why
     financial systems avoid destroying history.
   - *Build:* Annotate every FK on your ERD with its on-delete rule. Fill in 003,
@@ -803,3 +803,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-21 — S1.2 — ERD in docs/ERD.png + docs/erd.dbml; cardinality read both ways (Category 0..1 —< 0..N Transactions); FK on the many side because one cell holds one value (1NF); composite unique (user_id, alias) and (user_id, name)
 2026-10-21 — S1.3 — proved 0.1 + 0.2 != 0.3 and Decimal('0.1') + Decimal('0.2') == Decimal('0.3'); Decimal(0.1) inherits the float error, so amounts travel as strings; decided 001 (Decimal + Numeric, scale 2) and 005 (date, not timestamp)
 2026-10-22 — S1.4 — a transfer is two linked Transactions (−500 / +500) joined by a self-referencing counterpart_transaction_id; the spending report skips them; is_transfer dropped as redundant; balance still sums each Account's own rows; decided 002 (linked rows) and 004 (no splits)
+2026-10-23 — S1.5 — every Ref in erd.dbml has an on-delete rule; Accounts are archived (archive_at), so a real DELETE only runs when a User is removed and cascades all the way down; categories SET NULL; transfer halves cascade; decided 003 (flat categories) and 006 (overwrite in place)

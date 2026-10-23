@@ -10,6 +10,7 @@ Table accounts {
   user_id uuid [not null]
   type varchar [not null] // enum: checking, saving, credit card
   alias text [default: 'checking-1']
+  archive_at date
 
   indexes {
     (user_id, alias) [unique]
@@ -33,18 +34,21 @@ Table transactions {
   description text
   amount decimal [not null]
   date date [not null]
+  counterpart_transaction_id   uuid
 }
 
 // Relationships & Cardinality
 
 // User to Account: 1-to-Many (One user can have multiple accounts)
-Ref: users.id < accounts.user_id
+Ref: users.id < accounts.user_id [delete: cascade]
 
 // User to Category: 1-to-Many (One user can have multiple categories)
-Ref: users.id < categories.user_id
+Ref: users.id < categories.user_id [delete: cascade]
 
 // Account to Transaction: 1-to-Many (One account can have multiple transactions)
-Ref: accounts.account_id < transactions.account_id
+Ref: accounts.account_id < transactions.account_id [delete: cascade]
 
 // Category to Transaction: 1-to-Many (One category can be applied to multiple transactions, nullable on delete set null)
-Ref: categories.category_id < transactions.category_id
+Ref: categories.category_id < transactions.category_id [delete: set null]
+
+Ref: transactions.transaction_id < transactions.counterpart_transaction_id [delete: cascade]

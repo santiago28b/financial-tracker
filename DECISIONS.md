@@ -52,15 +52,17 @@ sums its own rows, no joins needed.
 
 ## 003 — Category hierarchy: flat or nested
 
-Date:
-Status: open
+Date: 2026-10-23
+Status: decided
 
 Flat is a simple list. Nested (Food → Groceries / Restaurants) means a parent
 field and recursive queries.
 
-Decision:
+Decision: we will go with plain categories. Users will be able to create their
+own categories if they want.
 
-Why:
+Why: nesting is irrelevant to the app we want to build, so we should not worry
+about it.
 
 ---
 
@@ -96,15 +98,16 @@ Why: timestamps shift to UTC.
 
 ## 006 — Edit history
 
-Date:
-Status: open
+Date: 2026-10-23
+Status: decided
 
 When a transaction's amount is corrected, does the old value disappear?
 Mutate in place, or append a correcting entry like real accounting systems?
 
-Decision:
+Decision: once the amount is corrected, we just update it and forget about the
+old amount.
 
-Why:
+Why: simplicity. We don't want to keep a history.
 
 ---
 
