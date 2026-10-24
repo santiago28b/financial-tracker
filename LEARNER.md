@@ -64,6 +64,7 @@ Evidence:
 - 2026-10-20 — then turned it into a full 45-min S1.1.
 - 2026-10-23 — S1.5: 4-day streak. Finished the session while tired instead of
   stopping.
+- 2026-10-24 — S1.6: did a minimum session instead of skipping; 5-day streak.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -87,6 +88,10 @@ Evidence:
   pasted from what I'd said earlier. Neither Why names what is given up (003:
   grouping; 006: any record of the old amount). Explained the counterpart
   cascade line correctly.
+- 2026-10-24 — S1.6 (min): explained the ERD from memory. First pass had the FK
+  backwards ("account has a transaction ID") and called the checked tables
+  "touched"; fixed both after one question each. Gave the −12 sign rule from
+  own notes with the reason.
 
 ---
 
@@ -111,6 +116,8 @@ Evidence:
 - 2026-10-23 — S1.5: traced the delete chain once asked: User CASCADE → Account
   → Transactions RESTRICT fails, so Transactions must cascade since day-to-day
   Account removal is a soft delete. Spotted the missing counterpart column myself.
+- 2026-10-24 — S1.6 (min): explained the insert path from memory; fixed "only
+  transactions is written, the other two are checked" after one question.
 
 ---
 
@@ -123,6 +130,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-21 — S1.2 — L2 — why the FK sits on the many side (1NF); DBML composite indexes
 2026-10-22 — S1.4 — L2 — self-referencing FK (Postgres constraints docs)
 2026-10-23 — S1.5 — L3 — DBML Ref syntax with [delete: ...] and a self-reference (books/sequel_of example)
+2026-10-24 — S1.6 — L1 — FK direction and written vs checked tables on insert
 
 ---
 

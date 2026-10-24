@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S1.6 — Checkpoint
-Last session:     2026-10-23 (S1.5)
-Progress:         9 / 102 sessions
-Streak:           4 days
+Current session:  S2.1 — Why logic lives alone
+Last session:     2026-10-24 (S1.6, min)
+Progress:         10 / 102 sessions
+Streak:           5 days
 ```
 
 Update this block at the end of every session.
@@ -175,7 +175,7 @@ changing a schema with data in it isn't.
     006 and 007.
   - *Done when:* all of DECISIONS 001–007 are `decided`.
 
-- [ ] **S1.6 — Checkpoint**
+- [x] **S1.6 — Checkpoint**
   - *Build:* Say out loud, without looking, what happens in the DB when you add
     one transaction. Commit the diagram + notes.
   - *Done when:* PLAN Phase 0's "Done when" is met.
@@ -804,3 +804,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-21 — S1.3 — proved 0.1 + 0.2 != 0.3 and Decimal('0.1') + Decimal('0.2') == Decimal('0.3'); Decimal(0.1) inherits the float error, so amounts travel as strings; decided 001 (Decimal + Numeric, scale 2) and 005 (date, not timestamp)
 2026-10-22 — S1.4 — a transfer is two linked Transactions (−500 / +500) joined by a self-referencing counterpart_transaction_id; the spending report skips them; is_transfer dropped as redundant; balance still sums each Account's own rows; decided 002 (linked rows) and 004 (no splits)
 2026-10-23 — S1.5 — every Ref in erd.dbml has an on-delete rule; Accounts are archived (archive_at), so a real DELETE only runs when a User is removed and cascades all the way down; categories SET NULL; transfer halves cascade; decided 003 (flat categories) and 006 (overwrite in place)
+2026-10-24 — S1.6 (min) — checkpoint from memory: adding a Transaction inserts one row in transactions (amount −12, out is negative); Postgres checks account_id and category_id point at existing rows; balance isn't written, it's summed from rows. PLAN Phase 0 done
