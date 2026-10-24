@@ -14,9 +14,9 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.1 — Why logic lives alone
-Last session:     2026-10-24 (S1.6, min)
-Progress:         10 / 102 sessions
+Current session:  S2.2 — Your first test
+Last session:     2026-10-24 (S2.1, min)
+Progress:         11 / 102 sessions
 Streak:           5 days
 ```
 
@@ -186,7 +186,7 @@ changing a schema with data in it isn't.
 **Goal:** the money logic, with no web and no DB, fully tested.
 **Interview Q:** "How do you structure code so it's testable?"
 
-- [ ] **S2.1 — Why logic lives alone**
+- [x] **S2.1 — Why logic lives alone**
   - *Concept:* Pure functions (same input → same output, no side effects).
     Business logic vs I/O. Why this is the habit that most separates junior from
     senior code.
@@ -805,3 +805,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-22 — S1.4 — a transfer is two linked Transactions (−500 / +500) joined by a self-referencing counterpart_transaction_id; the spending report skips them; is_transfer dropped as redundant; balance still sums each Account's own rows; decided 002 (linked rows) and 004 (no splits)
 2026-10-23 — S1.5 — every Ref in erd.dbml has an on-delete rule; Accounts are archived (archive_at), so a real DELETE only runs when a User is removed and cascades all the way down; categories SET NULL; transfer halves cascade; decided 003 (flat categories) and 006 (overwrite in place)
 2026-10-24 — S1.6 (min) — checkpoint from memory: adding a Transaction inserts one row in transactions (amount −12, out is negative); Postgres checks account_id and category_id point at existing rows; balance isn't written, it's summed from rows. PLAN Phase 0 done
+2026-10-24 — S2.1 (min) — pure function = same input → same output, no side effects; labelled main.py line by line: input/print are I/O, int() and append are logic (append is impure: mutates outside state), main/__name__ are glue; line 12 crashes with TypeError; created backend/domain/ with __init__.py (marks a regular package)

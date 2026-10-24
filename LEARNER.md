@@ -92,6 +92,10 @@ Evidence:
   backwards ("account has a transaction ID") and called the checked tables
   "touched"; fixed both after one question each. Gave the −12 sign rule from
   own notes with the reason.
+- 2026-10-24 — S2.1 (min): labelled per function first, then per line after
+  being asked. Fixed line 3 (append = logic); line 8 still only says "logic"
+  though it's also I/O. Created `__init__.py` without knowing why ("no idea");
+  given the answer (regular package) at L2.
 
 ---
 
@@ -118,6 +122,9 @@ Evidence:
   Account removal is a soft delete. Spotted the missing counterpart column myself.
 - 2026-10-24 — S1.6 (min): explained the insert path from memory; fixed "only
   transactions is written, the other two are checked" after one question.
+- 2026-10-24 — S2.1: explained in own words why process_info isn't pure (it
+  mutates a list it doesn't own); saw that `process_info()` with no args raises
+  TypeError.
 
 ---
 
@@ -131,6 +138,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-22 — S1.4 — L2 — self-referencing FK (Postgres constraints docs)
 2026-10-23 — S1.5 — L3 — DBML Ref syntax with [delete: ...] and a self-reference (books/sequel_of example)
 2026-10-24 — S1.6 — L1 — FK direction and written vs checked tables on insert
+2026-10-24 — S2.1 — L2 — why a package needs __init__.py (Python tutorial, Packages)
 
 ---
 
