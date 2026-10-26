@@ -39,6 +39,9 @@ Evidence:
   direction backwards and named a solution ("updated"). Fixed both after one
   question each. Asked "what specifically do you want me to do" twice; a filled-in
   template unblocked it each time.
+- 2026-10-25 — S2.2 (min): "i dont know you tell what do you want me to test";
+  a fill-in-the-blanks template unblocked it in one round. Then the first code
+  was the pytest docs example, not the planned test_addition; rewrote it to match.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -53,6 +56,8 @@ Evidence:
 - 2026-10-23 — S1.5: got tired mid-build and asked Claude to write the DBML
   ("just do it, I'm tired of typing"). When offered a stop, chose to push through
   and finished. Needed a concrete example (L3) for DBML Ref syntax; took 3 rounds.
+- 2026-10-25 — S2.2 (min): hit "fixture 'x' not found"; pasted the error but
+  didn't write expected / actual / ruled out. Kept going after L1 → L2.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -65,6 +70,7 @@ Evidence:
 - 2026-10-23 — S1.5: 4-day streak. Finished the session while tired instead of
   stopping.
 - 2026-10-24 — S1.6: did a minimum session instead of skipping; 5-day streak.
+- 2026-10-25 — S2.2: minimum session again; 6-day streak.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -96,6 +102,9 @@ Evidence:
   being asked. Fixed line 3 (append = logic); line 8 still only says "logic"
   though it's also I/O. Created `__init__.py` without knowing why ("no idea");
   given the answer (regular package) at L2.
+- 2026-10-25 — S2.2 (min): committed to the docs example (`func`, `test_answer`)
+  first; didn't know Arrange / Act / Assert when asked to point at them. After
+  rewriting, saw why `assert ans == x+y` can't catch a broken `+`, and changed it to `== 8`.
 
 ---
 
@@ -125,6 +134,8 @@ Evidence:
 - 2026-10-24 — S2.1: explained in own words why process_info isn't pure (it
   mutates a list it doesn't own); saw that `process_info()` with no args raises
   TypeError.
+- 2026-10-25 — S2.2: worked out why pytest ran 2 tests (both names start with
+  test_), and that a fixture is something pytest supplies.
 
 ---
 
@@ -139,6 +150,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-23 — S1.5 — L3 — DBML Ref syntax with [delete: ...] and a self-reference (books/sequel_of example)
 2026-10-24 — S1.6 — L1 — FK direction and written vs checked tables on insert
 2026-10-24 — S2.1 — L2 — why a package needs __init__.py (Python tutorial, Packages)
+2026-10-25 — S2.2 — L2 — test parameters are read as fixtures (pytest fixtures docs)
 
 ---
 

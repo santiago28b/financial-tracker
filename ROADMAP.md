@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.2 — Your first test
-Last session:     2026-10-24 (S2.1, min)
-Progress:         11 / 102 sessions
-Streak:           5 days
+Current session:  S2.3 — The Transaction type
+Last session:     2026-10-25 (S2.2, min)
+Progress:         12 / 102 sessions
+Streak:           6 days
 ```
 
 Update this block at the end of every session.
@@ -194,7 +194,7 @@ changing a schema with data in it isn't.
     input/printing with logic. Create `backend/domain/` as an empty package.
   - *Done when:* you can point at each line and say "logic" or "I/O".
 
-- [ ] **S2.2 — Your first test**
+- [x] **S2.2 — Your first test**
   - *Concept:* What a unit test is. Arrange / Act / Assert. Why tests are
     documentation that can't go stale.
   - *Build:* Install pytest, write one trivially passing test, run it, then make
@@ -806,3 +806,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-23 — S1.5 — every Ref in erd.dbml has an on-delete rule; Accounts are archived (archive_at), so a real DELETE only runs when a User is removed and cascades all the way down; categories SET NULL; transfer halves cascade; decided 003 (flat categories) and 006 (overwrite in place)
 2026-10-24 — S1.6 (min) — checkpoint from memory: adding a Transaction inserts one row in transactions (amount −12, out is negative); Postgres checks account_id and category_id point at existing rows; balance isn't written, it's summed from rows. PLAN Phase 0 done
 2026-10-24 — S2.1 (min) — pure function = same input → same output, no side effects; labelled main.py line by line: input/print are I/O, int() and append are logic (append is impure: mutates outside state), main/__name__ are glue; line 12 crashes with TypeError; created backend/domain/ with __init__.py (marks a regular package)
+2026-10-25 — S2.2 (min) — pytest installed; backend/tests/test_math.py test_addition arranges 5 and 3, acts, asserts == 8; saw 1 passed then 1 failed; learned pytest collects every test_* function, and test parameters are read as fixtures
