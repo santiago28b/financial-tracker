@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.3 — The Transaction type
-Last session:     2026-10-25 (S2.2, min)
-Progress:         12 / 102 sessions
-Streak:           6 days
+Current session:  S2.4 — Validation
+Last session:     2026-10-26 (S2.3)
+Progress:         13 / 102 sessions
+Streak:           7 days
 ```
 
 Update this block at the end of every session.
@@ -185,6 +185,9 @@ changing a schema with data in it isn't.
 ## Stage 2 — Pure Python domain + pytest (PLAN Phase 1)
 **Goal:** the money logic, with no web and no DB, fully tested.
 **Interview Q:** "How do you structure code so it's testable?"
+**Python warm-up (added 2026-10-26, see LEARNER weakness 5):** from S2.4 on, each
+session opens with 5 minutes in the Python shell: predict, then run, the one
+language mechanic the build depends on, before the start-up ritual.
 
 - [x] **S2.1 — Why logic lives alone**
   - *Concept:* Pure functions (same input → same output, no side effects).
@@ -201,7 +204,7 @@ changing a schema with data in it isn't.
     it fail on purpose.
   - *Done when:* you've seen green and red.
 
-- [ ] **S2.3 — The Transaction type**
+- [x] **S2.3 — The Transaction type**
   - *Concept:* Dataclasses. Representing money per DECISIONS 001. Immutability
     (`frozen=True`) and why it prevents bugs.
   - *Build:* Define `Transaction` and `Category` in `domain/`.
@@ -210,6 +213,8 @@ changing a schema with data in it isn't.
 - [ ] **S2.4 — Validation**
   - *Concept:* Fail fast at the boundary. Raise specific exceptions, not
     generic ones.
+  - *Warm-up:* in the shell: `raise ValueError("x")`, a `class MyError(ValueError)`,
+    and catching it with `try/except`. Predict each output first.
   - *Build:* Reject zero amounts, missing descriptions, and bad dates. Test each
     rejection with `pytest.raises`.
   - *Done when:* every validation rule has a test.
@@ -807,3 +812,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-24 — S1.6 (min) — checkpoint from memory: adding a Transaction inserts one row in transactions (amount −12, out is negative); Postgres checks account_id and category_id point at existing rows; balance isn't written, it's summed from rows. PLAN Phase 0 done
 2026-10-24 — S2.1 (min) — pure function = same input → same output, no side effects; labelled main.py line by line: input/print are I/O, int() and append are logic (append is impure: mutates outside state), main/__name__ are glue; line 12 crashes with TypeError; created backend/domain/ with __init__.py (marks a regular package)
 2026-10-25 — S2.2 (min) — pytest installed; backend/tests/test_math.py test_addition arranges 5 and 3, acts, asserts == 8; saw 1 passed then 1 failed; learned pytest collects every test_* function, and test parameters are read as fixtures
+2026-10-26 — S2.3 — frozen dataclasses Transaction and Category in backend/domain/; `= uuid4()` runs once when the class is read, `field(default_factory=uuid4)` runs per object; fields with defaults go last; own id is generated, references (account_id, user_id) are passed by the caller; `X | None` for nullable category_id; type hints aren't checked at runtime; pytest.ini `pythonpath = .`; decided 012 (Python creates transaction_id)

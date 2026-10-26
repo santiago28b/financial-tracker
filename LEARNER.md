@@ -42,6 +42,10 @@ Evidence:
 - 2026-10-25 — S2.2 (min): "i dont know you tell what do you want me to test";
   a fill-in-the-blanks template unblocked it in one round. Then the first code
   was the pytest docs example, not the planned test_addition; rewrote it to match.
+- 2026-10-26 — S2.3: ritual line 1 named the tool ("they'll be dataclasses")
+  instead of a requirement; field list was right. Skipped the failing test for
+  4 review rounds; the fill-in template got it written. Once it existed, every
+  later bug showed up in the test output instead of in review.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -58,6 +62,11 @@ Evidence:
   and finished. Needed a concrete example (L3) for DBML Ref syntax; took 3 rounds.
 - 2026-10-25 — S2.2 (min): hit "fixture 'x' not found"; pasted the error but
   didn't write expected / actual / ruled out. Kept going after L1 → L2.
+- 2026-10-26 — S2.3: long session, kept going through ~10 red runs. Started
+  guessing near the end (`backend`, then `tests` for the path) and moved fields
+  one line at a time instead of using the rule. Said "I don't know what you're
+  talking about" once; L3 plain-English layout unblocked it. Didn't read the
+  pytest warning until shown where it was.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -105,6 +114,26 @@ Evidence:
 - 2026-10-25 — S2.2 (min): committed to the docs example (`func`, `test_answer`)
   first; didn't know Arrange / Act / Assert when asked to point at them. After
   rewriting, saw why `assert ans == x+y` can't catch a broken `+`, and changed it to `== 8`.
+- 2026-10-26 — S2.3: copied `python_files` from the pytest docs thinking it set
+  imports. Made tests green by moving lines and flipping an assert, while
+  `account_id`/`user_id` still had random defaults; explained it correctly when
+  asked in words. Explained `default_factory=uuid4` vs `uuid4()` (called at
+  creation vs once). 012's Why ("easier, efficient, not a security risk") is
+  thin: it doesn't name the real gain (frozen + never None).
+
+### 5. Python language mechanics
+Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
+Python here." Function vs call (`uuid4` vs `uuid4()`), when defaults are
+evaluated, type hints not enforced, import paths.
+Drill: the Stage 2 **Python warm-up** (ROADMAP): 5 minutes in the shell before
+the ritual, predicting then running the one mechanic the build uses. When the
+concept is Python itself rather than design, Claude shows it in the shell first.
+Evidence:
+- 2026-10-26 — S2.3: passed `uuid4` as a value (stored the function as the id);
+  then `default_factory=uuid4()`; predicted `= uuid4()` runs once per object.
+  Treated "type hint" and "default" as the same thing (added `default_factory`
+  when asked for `UUID`). Didn't know `.` means "this folder". All fixed by the
+  end, and the uuid4 vs uuid4() difference was explained back in own words.
 
 ---
 
@@ -136,6 +165,9 @@ Evidence:
   TypeError.
 - 2026-10-25 — S2.2: worked out why pytest ran 2 tests (both names start with
   test_), and that a fixture is something pytest supplies.
+- 2026-10-26 — S2.3: asked the right question unprompted ("why doesn't
+  account_id have a default if it's also a UUID?") and answered that the caller
+  passes it, not the class. Pushed through a long red streak to green.
 
 ---
 
@@ -151,6 +183,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-24 — S1.6 — L1 — FK direction and written vs checked tables on insert
 2026-10-24 — S2.1 — L2 — why a package needs __init__.py (Python tutorial, Packages)
 2026-10-25 — S2.2 — L2 — test parameters are read as fixtures (pytest fixtures docs)
+2026-10-26 — S2.3 — L3 — dataclass field ordering (required on top, defaults at the bottom); L2 default_factory and pytest pythonpath
 
 ---
 

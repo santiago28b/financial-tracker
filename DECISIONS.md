@@ -222,3 +222,24 @@ Alternatives considered: shared defaults, with one row per default and
 Why: a rename or delete must only affect my own Categories. With shared rows,
 renaming "Food" would rename it for every User, so shared Categories couldn't
 be edited at all.
+
+---
+
+## 012 — Who creates a Transaction's id
+
+Date: 2026-10-26
+Status: decided
+
+Decision: Python creates `transaction_id` with `uuid.uuid4()` when the
+Transaction object is built. Postgres stores the id it's given.
+
+Alternatives considered: leave the id off the domain type until the repository
+layer; `UUID | None = None` until the Transaction is saved.
+
+Why: it easier to just create it once a new object is created and pass it to the database. i think is efficient and doe snot represent any secuiry vulnerability
+
+Why frozen matters here: a Transaction is `frozen=True`, so "it stops another
+function from changing the amount after validation" (my words, S2.3), and the
+same goes for the id. A frozen object can't get its id filled in later, so it
+has to be born with one. Creating it in Python means every Transaction always
+has a real id and no code ever has to check for `None`.
