@@ -11,3 +11,4 @@ building it today.
 - Multi-user / shared household finances
 - Mobile layout
 - OOP solo rep: classes, encapsulation, interfaces (ABCs / Protocols), polymorphism, inheritance vs composition, and when a class beats a function (after S4.10)
+- Spend/Income toggle in the transaction form (Stage 5): the UI sets the sign so users never type a minus; domain keeps "negative = out" (S1.6)

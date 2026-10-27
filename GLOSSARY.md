@@ -13,7 +13,7 @@ A place money lives: a checking account, a savings account or a credit card.
 _Avoid_: User account, login
 
 **Transaction**:
-One movement of money on a date, with an amount and a description, belonging to one Account.
+One movement of money on a date, with a non-zero amount and an optional description, belonging to one Account. Invalid data raises TransactionError when the Transaction is created.
 _Avoid_: Expense, record, entry
 
 **Category**:
@@ -25,7 +25,7 @@ A Transaction's money value, exact to the cent: Decimal in Python, Numeric with 
 _Avoid_: Price, value
 
 **Transaction date**:
-The calendar day a Transaction happened, stored as a date with no time or timezone.
+The calendar day a Transaction happened, stored as a date with no time or timezone. Defaults to today when not given. Field name: `tr_date`.
 _Avoid_: Timestamp, datetime
 
 **Opening balance**:

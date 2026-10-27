@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.4 — Validation
-Last session:     2026-10-26 (S2.3)
-Progress:         13 / 102 sessions
-Streak:           7 days
+Current session:  S2.5 — Categorising
+Last session:     2026-10-27 (S2.4)
+Progress:         14 / 102 sessions
+Streak:           8 days
 ```
 
 Update this block at the end of every session.
@@ -210,7 +210,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Build:* Define `Transaction` and `Category` in `domain/`.
   - *Done when:* you can create one in a test and assert on its fields.
 
-- [ ] **S2.4 — Validation**
+- [x] **S2.4 — Validation**
   - *Concept:* Fail fast at the boundary. Raise specific exceptions, not
     generic ones.
   - *Warm-up:* in the shell: `raise ValueError("x")`, a `class MyError(ValueError)`,
@@ -220,6 +220,9 @@ language mechanic the build depends on, before the start-up ritual.
   - *Done when:* every validation rule has a test.
 
 - [ ] **S2.5 — Categorising**
+  - *Carry-over from S2.4:* make `description` required again (test first: a
+    missing or empty description raises TransactionError), then rewrite
+    DECISIONS 013. Why: the category can be predicted from the description.
   - *Build:* Assign and reassign categories. Handle "uncategorised" (per DECISIONS 007).
   - *Done when:* tested, including reassigning to the same category.
 
@@ -813,3 +816,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-24 — S2.1 (min) — pure function = same input → same output, no side effects; labelled main.py line by line: input/print are I/O, int() and append are logic (append is impure: mutates outside state), main/__name__ are glue; line 12 crashes with TypeError; created backend/domain/ with __init__.py (marks a regular package)
 2026-10-25 — S2.2 (min) — pytest installed; backend/tests/test_math.py test_addition arranges 5 and 3, acts, asserts == 8; saw 1 passed then 1 failed; learned pytest collects every test_* function, and test parameters are read as fixtures
 2026-10-26 — S2.3 — frozen dataclasses Transaction and Category in backend/domain/; `= uuid4()` runs once when the class is read, `field(default_factory=uuid4)` runs per object; fields with defaults go last; own id is generated, references (account_id, user_id) are passed by the caller; `X | None` for nullable category_id; type hints aren't checked at runtime; pytest.ini `pythonpath = .`; decided 012 (Python creates transaction_id)
+2026-10-27 — S2.4 — fail fast at the boundary: Transaction.__post_init__ raises TransactionError(ValueError) for a zero amount or a non-date; a child of ValueError is caught by `except ValueError`; class body runs at file load, method body at call; tr_date defaults to today via default_factory=date.today (renamed from `date`, which shadowed the import); description optional, defaults to ""; each test breaks one rule only; pytest.raises; 7 passed

@@ -46,6 +46,11 @@ Evidence:
   instead of a requirement; field list was right. Skipped the failing test for
   4 review rounds; the fill-in template got it written. Once it existed, every
   later bug showed up in the test output instead of in review.
+- 2026-10-27 — S2.4: ritual line 1 mixed requirements with solutions
+  ("auto-generate dates", an income/spend enum); sorted after one round. Wrote
+  the failing zero-amount test before any code (first time without a template),
+  but first copied the docs shape (`int(0)`) inside pytest.raises. Date test and
+  fix were written together; says the red was seen but not shown.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -67,6 +72,10 @@ Evidence:
   one line at a time instead of using the rule. Said "I don't know what you're
   talking about" once; L3 plain-English layout unblocked it. Didn't read the
   pytest warning until shown where it was.
+- 2026-10-27 — S2.4: "I have no idea" on the first warm-up prediction; a nudge
+  got a correct guess with the right reason. Didn't know the expected / actual /
+  ruled out drill by name. Fixed the import error alone once asked where
+  pytest.ini lives. No giving up across ~8 red runs.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -120,6 +129,10 @@ Evidence:
   asked in words. Explained `default_factory=uuid4` vs `uuid4()` (called at
   creation vs once). 012's Why ("easier, efficient, not a security risk") is
   thin: it doesn't name the real gain (frozen + never None).
+- 2026-10-27 — S2.4: asked to understand the warm-up lines before writing code
+  (unprompted). Explained `as e` (partly: it's the whole error object) and why
+  TransactionError works below __post_init__ (method runs at call time).
+  DECISIONS 013 (description optional) still to write.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -134,6 +147,12 @@ Evidence:
   Treated "type hint" and "default" as the same thing (added `default_factory`
   when asked for `UUID`). Didn't know `.` means "this folder". All fixed by the
   end, and the uuid4 vs uuid4() difference was explained back in own words.
+- 2026-10-27 — S2.4: predicted "empty class does nothing" for `MyError(ValueError)`;
+  then got "a child is caught by except ValueError" right. Put `raise` inside a
+  class body (NameError); used `default_factory=''`; again read `str | None` as
+  making a field optional (hint vs default). Called `date` a keyword (it's a
+  shadowed name). Got `default_factory=date.today` vs `date.today()` right and
+  explained it back. Decimal(0.1) vs Decimal("0.1") predicted wrong, shell fixed it.
 
 ---
 
@@ -168,6 +187,9 @@ Evidence:
 - 2026-10-26 — S2.3: asked the right question unprompted ("why doesn't
   account_id have a default if it's also a UUID?") and answered that the caller
   passes it, not the class. Pushed through a long red streak to green.
+- 2026-10-27 — S2.4: read the __post_init__ docs and summarised them correctly
+  on first try; fixed the ValueError inheritance by applying the warm-up alone;
+  spotted the `date` name clash and renamed the field without being asked.
 
 ---
 
@@ -184,6 +206,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-24 — S2.1 — L2 — why a package needs __init__.py (Python tutorial, Packages)
 2026-10-25 — S2.2 — L2 — test parameters are read as fixtures (pytest fixtures docs)
 2026-10-26 — S2.3 — L3 — dataclass field ordering (required on top, defaults at the bottom); L2 default_factory and pytest pythonpath
+2026-10-27 — S2.4 — L2 — __post_init__ (dataclasses docs), pytest.raises shape (pytest docs), user-defined exceptions
 
 ---
 

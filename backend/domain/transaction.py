@@ -8,9 +8,21 @@ from uuid import UUID, uuid4
 @dataclass(frozen=True)
 class Transaction:
     account_id: UUID
-    description: str
     amount: Decimal
-    date: date
     category_id : UUID | None
+    description: str = ""
+    tr_date: date = field(default_factory=date.today)
     transaction_id: UUID = field(default_factory=uuid4)
+
+    def __post_init__(self):
+        if self.amount == 0:
+            raise TransactionError("amount can not be zero")
+        if type(self.tr_date) != date:
+            raise TransactionError("it has to be date formatted")
+
+
+class TransactionError(ValueError):
+    pass
+
+
     
