@@ -51,6 +51,10 @@ Evidence:
   the failing zero-amount test before any code (first time without a template),
   but first copied the docs shape (`int(0)`) inside pytest.raises. Date test and
   fix were written together; says the red was seen but not shown.
+- 2026-10-28 — S2.5: ritual lines 1–2 were real requirements (no tools named) but
+  said the same thing, and uncategorised was missing; signature planned "return
+  void, modify it" despite frozen. One round of 3 questions fixed all of it.
+  Wrote the description tests first; red runs shown twice, skipped once.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -76,6 +80,10 @@ Evidence:
   got a correct guess with the right reason. Didn't know the expected / actual /
   ruled out drill by name. Fixed the import error alone once asked where
   pytest.ini lives. No giving up across ~8 red runs.
+- 2026-10-28 — S2.5: misread `DID NOT RAISE` as "it raised both errors". Changed a
+  test from TypeError to ValueError to make it green, and said so when asked.
+  Asked for help ("don't quite understand the tests") instead of stalling; a
+  fill-in template unblocked it. No giving up.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -133,6 +141,9 @@ Evidence:
   (unprompted). Explained `as e` (partly: it's the whole error object) and why
   TransactionError works below __post_init__ (method runs at call time).
   DECISIONS 013 (description optional) still to write.
+- 2026-10-28 — S2.5: dictated 013 (decision, why, given up) in own words over 3
+  prompts; Given up named the real cost this time. Explained `self is first`
+  passes only because of the `if`, since replace makes a new object.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -153,6 +164,11 @@ Evidence:
   making a field optional (hint vs default). Called `date` a keyword (it's a
   shadowed name). Got `default_factory=date.today` vs `date.today()` right and
   explained it back. Decimal(0.1) vs Decimal("0.1") predicted wrong, shell fixed it.
+- 2026-10-28 — S2.5: warm-up 2/3 (thought replace leaves b = 1), then explained
+  replace correctly. Put `;TypeError` on the import line to "use it" (built-ins
+  need no import). Thought `self` in a method is the blueprint, not the object.
+  Wrote `replace(self, self.category_id=...)`. Two tests with the same name, so one
+  silently didn't run; caught it from the count when asked.
 
 ---
 
@@ -190,6 +206,9 @@ Evidence:
 - 2026-10-27 — S2.4: read the __post_init__ docs and summarised them correctly
   on first try; fixed the ValueError inheritance by applying the warm-up alone;
   spotted the `date` name clash and renamed the field without being asked.
+- 2026-10-28 — S2.5: asked unprompted what happens to the old Transaction after
+  replace (memory vs DB row); predicted the transaction_id stays the same and
+  proved it with an assert.
 
 ---
 
@@ -207,6 +226,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-25 — S2.2 — L2 — test parameters are read as fixtures (pytest fixtures docs)
 2026-10-26 — S2.3 — L3 — dataclass field ordering (required on top, defaults at the bottom); L2 default_factory and pytest pythonpath
 2026-10-27 — S2.4 — L2 — __post_init__ (dataclasses docs), pytest.raises shape (pytest docs), user-defined exceptions
+2026-10-28 — S2.5 — L2 — dataclasses.replace and `self` is the instance; built-in exceptions need no import; fill-in test template
 
 ---
 

@@ -246,20 +246,13 @@ has a real id and no code ever has to check for `None`.
 
 ---
 
-## 013 — Description is optional
+## 013 — Description is required
 
-Date: 2026-10-27
-Status: open (reversing at S2.5)
-Decision: a Transaction's description is optional; left out, it is "" (empty string).
-Alternatives considered: description required (reject an empty one).
-Why: we don't force the user to type a description, but that comes with a cost:
-with no description it is hard to know where the money went. The Category has
-to carry that meaning instead, so making the category mandatory is worth
-considering (open, see below).
-
-Open: making category required clashes with 007. Deleting a Category sets
-`category_id` to NULL, so a "required" category can't survive that rule.
-
-Update 2026-10-27 (after S2.4): changing my mind. Description should be required
-again, because the category can be predicted from it. Reverse this at the start
-of S2.5 and rewrite this entry then.
+Date: 2026-10-28 (reverses the 2026-10-27 version: description optional, default "")
+Status: decided
+Decision: description is required so the category can be predicted from it.
+`description: str` has no default; left out → TypeError, empty → TransactionError.
+Alternatives considered: keep the `= ""` default and let `__post_init__` reject it;
+optional description (the original 013).
+Why: the category can be predicted from it, and the signature should show it's required.
+Given up: they have to type a description for every transaction.

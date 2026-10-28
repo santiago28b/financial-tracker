@@ -13,12 +13,20 @@ A place money lives: a checking account, a savings account or a credit card.
 _Avoid_: User account, login
 
 **Transaction**:
-One movement of money on a date, with a non-zero amount and an optional description, belonging to one Account. Invalid data raises TransactionError when the Transaction is created.
+One movement of money on a date, with a non-zero amount and a required, non-empty description, belonging to one Account. Invalid data raises TransactionError when the Transaction is created.
 _Avoid_: Expense, record, entry
 
 **Category**:
 A label a User puts on Transactions, owned by that User; defaults are copied to each User at sign-up.
 _Avoid_: Tag, type
+
+**Uncategorised**:
+A Transaction whose `category_id` is None: no Category assigned yet, or its Category was deleted (DECISIONS 007).
+_Avoid_: Other, misc (those would be real Categories)
+
+**Reassigning a category**:
+Giving a Transaction a different `category_id` (or None). Transactions are frozen, so this returns a new Transaction with the same transaction_id; the original is unchanged.
+_Avoid_: Updating, editing the Transaction
 
 **Amount**:
 A Transaction's money value, exact to the cent: Decimal in Python, Numeric with scale 2 in Postgres. Never a float.
