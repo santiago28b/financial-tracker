@@ -2,7 +2,7 @@ from domain.transaction import Transaction, TransactionError
 from uuid import UUID, uuid4
 from datetime import date
 from decimal import Decimal
-from domain.filters import transactions_between
+from domain.filters import transactions_between,totals_by_category
 import pytest
 
 def test_transaction_on_start_is_included():
@@ -42,4 +42,10 @@ def test_transaction_on_end_is_not_included():
     result = transactions_between(txn_list,start,end)
 
     assert txn not in result
+
+def test_total_by_category_empty_list():
+    txn_list = []
+    result = totals_by_category(txn_list)
+
+    assert result == {}
        

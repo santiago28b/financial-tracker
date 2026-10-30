@@ -60,6 +60,11 @@ Evidence:
   "start in, end out" and the TypeError-for-free choice. Wrote the body before the
   test, and the first test was mid-range (Oct 15), not on an edge. The 4 edge tests
   came after one prompt.
+- 2026-10-30 — S2.7 (min): ritual line 1 drifted into an API design nobody asked
+  for (account_id + an optional category argument); one question back to S2.6
+  ("the caller already fetched") fixed it. Said values = "the transactions" before
+  "Decimal total". First red came from calling the wrong function, the second from
+  `result.values() == None`; the third was right (`assert result == {}`). Rung: L1 only.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -186,6 +191,9 @@ Evidence:
 - 2026-10-29 — S2.6: warm-up 3/3 (chained comparisons with dates, a filtering list
   comprehension). Wrote `list(Transaction)` to make an empty list (class vs object
   again) and compared a Transaction to a date; fixed both alone from the error.
+- 2026-10-30 — S2.7 (min): put the function stub in a test file; wrote
+  `result.values() == None` for "empty dict" (mixed up None and empty).
+  Return hint left as bare `dict`.
 
 ---
 

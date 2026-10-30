@@ -10,3 +10,6 @@ def transactions_between(transaction_list:list[Transaction], start_date:date,end
             transactions.append(transaction)
 
     return transactions
+
+def totals_by_category(txns: list[Transaction]) -> dict:
+    pass
