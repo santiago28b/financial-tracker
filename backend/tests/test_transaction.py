@@ -48,6 +48,6 @@ def test_assign_same_category_id():
     second = first.assign_category("1234")         
     assert second is first    
 
-       
+
 
 

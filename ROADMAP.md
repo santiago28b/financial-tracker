@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.6 — Filtering by date range
-Last session:     2026-10-28 (S2.5)
-Progress:         15 / 102 sessions
-Streak:           9 days
+Current session:  S2.7 — Totals per category
+Last session:     2026-10-29 (S2.6)
+Progress:         16 / 102 sessions
+Streak:           10 days
 ```
 
 Update this block at the end of every session.
@@ -226,7 +226,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Build:* Assign and reassign categories. Handle "uncategorised" (per DECISIONS 007).
   - *Done when:* tested, including reassigning to the same category.
 
-- [ ] **S2.6 — Filtering by date range**
+- [x] **S2.6 — Filtering by date range**
   - *Concept:* Inclusive vs exclusive ranges. Why `start <= d < next_month_start`
     avoids the "last day of the month" bug.
   - *Build:* `transactions_between(txns, start, end)`.
@@ -818,3 +818,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-26 — S2.3 — frozen dataclasses Transaction and Category in backend/domain/; `= uuid4()` runs once when the class is read, `field(default_factory=uuid4)` runs per object; fields with defaults go last; own id is generated, references (account_id, user_id) are passed by the caller; `X | None` for nullable category_id; type hints aren't checked at runtime; pytest.ini `pythonpath = .`; decided 012 (Python creates transaction_id)
 2026-10-27 — S2.4 — fail fast at the boundary: Transaction.__post_init__ raises TransactionError(ValueError) for a zero amount or a non-date; a child of ValueError is caught by `except ValueError`; class body runs at file load, method body at call; tr_date defaults to today via default_factory=date.today (renamed from `date`, which shadowed the import); description optional, defaults to ""; each test breaks one rule only; pytest.raises; 7 passed
 2026-10-28 — S2.5 — description required again (no default → TypeError when missing, "" → TransactionError); DECISIONS 013 rewritten; frozen means reassigning = a new object: Transaction.assign_category(category_id) returns replace(self, category_id=...), keeps transaction_id, original unchanged; None = uncategorised (007); same category returns self; two tests with one name → only the last runs; 11 passed
+2026-10-29 — S2.6 — half-open range (start included, end excluded) so a month is `start <= d < next_month_start` and Feb/leap years need no last-day math; transactions_between(list[Transaction], start, end) -> list[Transaction] as a plain function in domain/filters.py (no state → no class; the caller already fetched one User's Transactions, so no user_id in domain); missing start/end = TypeError for free; 4 edge tests (on start, day before, last day, on end); flipping < to <= turned the on-end test red; 15 passed

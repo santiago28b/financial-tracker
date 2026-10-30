@@ -55,6 +55,11 @@ Evidence:
   said the same thing, and uncategorised was missing; signature planned "return
   void, modify it" despite frozen. One round of 3 questions fixed all of it.
   Wrote the description tests first; red runs shown twice, skipped once.
+- 2026-10-29 — S2.6: ritual line 1 was vague ("correct dates are included") and
+  added a requirement nobody asked for (open-ended ranges); one question each got
+  "start in, end out" and the TypeError-for-free choice. Wrote the body before the
+  test, and the first test was mid-range (Oct 15), not on an edge. The 4 edge tests
+  came after one prompt.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -84,6 +89,10 @@ Evidence:
   test from TypeError to ValueError to make it green, and said so when asked.
   Asked for help ("don't quite understand the tests") instead of stalling; a
   fill-in template unblocked it. No giving up.
+- 2026-10-29 — S2.6: found and fixed both bugs alone (passed the class to list(),
+  compared the object instead of `.tr_date`). Asked a clarifying design question
+  (per User? user_id?) before coding instead of guessing. Said "I don't understand,
+  explain better" once and got unblocked by a plain explanation.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -97,6 +106,7 @@ Evidence:
   stopping.
 - 2026-10-24 — S1.6: did a minimum session instead of skipping; 5-day streak.
 - 2026-10-25 — S2.2: minimum session again; 6-day streak.
+- 2026-10-29 — S2.6: full session; 10-day streak.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -144,6 +154,10 @@ Evidence:
 - 2026-10-28 — S2.5: dictated 013 (decision, why, given up) in own words over 3
   prompts; Given up named the real cost this time. Explained `self is first`
   passes only because of the `if`, since replace makes a new object.
+- 2026-10-29 — S2.6: explained `start_date <= transaction.tr_date < end_date`;
+  first answer was "inside the range", and named start in / end out when asked.
+  Deleted the import from the wrong test file and didn't rerun pytest; 4 red until
+  pointed at.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -169,6 +183,9 @@ Evidence:
   need no import). Thought `self` in a method is the blueprint, not the object.
   Wrote `replace(self, self.category_id=...)`. Two tests with the same name, so one
   silently didn't run; caught it from the count when asked.
+- 2026-10-29 — S2.6: warm-up 3/3 (chained comparisons with dates, a filtering list
+  comprehension). Wrote `list(Transaction)` to make an empty list (class vs object
+  again) and compared a Transaction to a date; fixed both alone from the error.
 
 ---
 
@@ -209,6 +226,8 @@ Evidence:
 - 2026-10-28 — S2.5: asked unprompted what happens to the old Transaction after
   replace (memory vs DB row); predicted the transaction_id stays the same and
   proved it with an assert.
+- 2026-10-29 — S2.6: asked unprompted whether the domain function needs user_id,
+  i.e. where the layer boundary is; checked a test can fail by flipping `<` to `<=`.
 
 ---
 
@@ -227,6 +246,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-26 — S2.3 — L3 — dataclass field ordering (required on top, defaults at the bottom); L2 default_factory and pytest pythonpath
 2026-10-27 — S2.4 — L2 — __post_init__ (dataclasses docs), pytest.raises shape (pytest docs), user-defined exceptions
 2026-10-28 — S2.5 — L2 — dataclasses.replace and `self` is the instance; built-in exceptions need no import; fill-in test template
+2026-10-29 — S2.6 — L2 — plain function vs class (a class bundles state; this has none); domain gets an already-fetched list (S2.1 pure logic)
 
 ---
 

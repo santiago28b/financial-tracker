@@ -36,6 +36,10 @@ _Avoid_: Price, value
 The calendar day a Transaction happened, stored as a date with no time or timezone. Defaults to today when not given. Field name: `tr_date`.
 _Avoid_: Timestamp, datetime
 
+**Date range**:
+A half-open span of Transaction dates: `start` is included, `end` is excluded (`start <= tr_date < end`). A month runs from its first day up to the first day of the next month.
+_Avoid_: Open range (that excludes both ends), closed range with a computed last day
+
 **Opening balance**:
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column
