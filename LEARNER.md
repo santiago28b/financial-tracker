@@ -194,6 +194,9 @@ Evidence:
 - 2026-10-30 — S2.7 (min): put the function stub in a test file; wrote
   `result.values() == None` for "empty dict" (mixed up None and empty).
   Return hint left as bare `dict`.
+- 2026-10-31 — S2.7 (min): lost on "make it pass with the smallest change"; once asked
+  what the stub returns vs what the test wants (None vs {}), wrote `return {}` alone.
+  Kept None and empty dict apart this time (fixes 10-30's mix-up).
 
 ---
 
@@ -255,6 +258,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-27 — S2.4 — L2 — __post_init__ (dataclasses docs), pytest.raises shape (pytest docs), user-defined exceptions
 2026-10-28 — S2.5 — L2 — dataclasses.replace and `self` is the instance; built-in exceptions need no import; fill-in test template
 2026-10-29 — S2.6 — L2 — plain function vs class (a class bundles state; this has none); domain gets an already-fetched list (S2.1 pure logic)
+2026-10-31 — S2.7 — L1 — what does the stub return vs what does the test want (None vs {})
 
 ---
 

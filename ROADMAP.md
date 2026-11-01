@@ -15,9 +15,9 @@ deployed app with AI features that you can defend in an interview.
 
 ```
 Current session:  S2.7 — Totals per category
-Last session:     2026-10-30 (S2.7 min)
+Last session:     2026-10-31 (S2.7 min)
 Progress:         16 / 102 sessions
-Streak:           11 days
+Streak:           12 days
 ```
 
 Update this block at the end of every session.
@@ -820,3 +820,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-28 — S2.5 — description required again (no default → TypeError when missing, "" → TransactionError); DECISIONS 013 rewritten; frozen means reassigning = a new object: Transaction.assign_category(category_id) returns replace(self, category_id=...), keeps transaction_id, original unchanged; None = uncategorised (007); same category returns self; two tests with one name → only the last runs; 11 passed
 2026-10-29 — S2.6 — half-open range (start included, end excluded) so a month is `start <= d < next_month_start` and Feb/leap years need no last-day math; transactions_between(list[Transaction], start, end) -> list[Transaction] as a plain function in domain/filters.py (no state → no class; the caller already fetched one User's Transactions, so no user_id in domain); missing start/end = TypeError for free; 4 edge tests (on start, day before, last day, on end); flipping < to <= turned the on-end test red; 15 passed
 2026-10-30 — S2.7 (min) — ritual: list[Transaction] in, dict category_id → Decimal total out, None is its own key (Uncategorised), [] → {}; no account_id/category args because the caller already fetched the list (same as S2.6); stub totals_by_category in domain/filters.py (kept there by choice: "it's a filter to me"); test_total_by_category_empty_list red for the right reason (assert None == {}); S2.7 stays open for the single-txn and refund tests
+2026-10-31 — S2.7 (min) — empty-list test green with `return {}` (smallest change: stub returned None, test wanted an empty dict); refund mental check right (€10 + −€3 = €7, a refund subtracts, never dropped); S2.7 stays open for the single-txn and refund tests; 16 passed
