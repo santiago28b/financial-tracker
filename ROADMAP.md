@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.7 — Totals per category
-Last session:     2026-10-31 (S2.7 min)
-Progress:         16 / 102 sessions
-Streak:           12 days
+Current session:  S2.8 — Sorting & percentages
+Last session:     2026-11-02 (S2.7)
+Progress:         17 / 102 sessions
+Streak:           13 days
 ```
 
 Update this block at the end of every session.
@@ -232,7 +232,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Build:* `transactions_between(txns, start, end)`.
   - *Done when:* tests cover the first day, the last day, and just outside each edge.
 
-- [ ] **S2.7 — Totals per category**
+- [x] **S2.7 — Totals per category**
   - *Build:* `totals_by_category(txns)` returns category → total.
   - *Done when:* tested with an empty list, a single transaction, and a refund
     (negative amount).
@@ -821,3 +821,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-29 — S2.6 — half-open range (start included, end excluded) so a month is `start <= d < next_month_start` and Feb/leap years need no last-day math; transactions_between(list[Transaction], start, end) -> list[Transaction] as a plain function in domain/filters.py (no state → no class; the caller already fetched one User's Transactions, so no user_id in domain); missing start/end = TypeError for free; 4 edge tests (on start, day before, last day, on end); flipping < to <= turned the on-end test red; 15 passed
 2026-10-30 — S2.7 (min) — ritual: list[Transaction] in, dict category_id → Decimal total out, None is its own key (Uncategorised), [] → {}; no account_id/category args because the caller already fetched the list (same as S2.6); stub totals_by_category in domain/filters.py (kept there by choice: "it's a filter to me"); test_total_by_category_empty_list red for the right reason (assert None == {}); S2.7 stays open for the single-txn and refund tests
 2026-10-31 — S2.7 (min) — empty-list test green with `return {}` (smallest change: stub returned None, test wanted an empty dict); refund mental check right (€10 + −€3 = €7, a refund subtracts, never dropped); S2.7 stays open for the single-txn and refund tests; 16 passed
+2026-11-02 — S2.7 — totals_by_category accumulates in one pass: totals[cat] = totals.get(cat, 0) + amount; 0 + Decimal stays Decimal; None is just another key; the `if len == 0` branch was redundant (loop runs zero times → {}); single-txn test fixed to arrange one Transaction and expect a dict, not a Transaction; refund test (+10, −3 → 7) green first run, then broken on purpose to see red; defaultdict(Decimal) considered (reading a missing key inserts it → return dict(...)); 18 passed

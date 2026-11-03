@@ -197,6 +197,11 @@ Evidence:
 - 2026-10-31 — S2.7 (min): lost on "make it pass with the smallest change"; once asked
   what the stub returns vs what the test wants (None vs {}), wrote `return {}` alone.
   Kept None and empty dict apart this time (fixes 10-30's mix-up).
+- 2026-11-02 — S2.7: warm-up 2/2 (dict.get default, accumulate). Thought the int 0
+  default would leave an int total (0 + Decimal is Decimal; shell check). First
+  "one transaction" test arranged two and asserted result == a Transaction (dict vs
+  object again); fixed both after one question each. Proposed defaultdict(Decimal)
+  unprompted.
 
 ---
 
@@ -239,6 +244,9 @@ Evidence:
   proved it with an assert.
 - 2026-10-29 — S2.6: asked unprompted whether the domain function needs user_id,
   i.e. where the layer boundary is; checked a test can fail by flipping `<` to `<=`.
+- 2026-11-02 — S2.7: came up with defaultdict(Decimal) alone; removed the redundant
+  empty-list branch and renamed the shadowing variable after one question; broke the
+  function to prove the refund test can fail.
 
 ---
 
@@ -259,6 +267,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-28 — S2.5 — L2 — dataclasses.replace and `self` is the instance; built-in exceptions need no import; fill-in test template
 2026-10-29 — S2.6 — L2 — plain function vs class (a class bundles state; this has none); domain gets an already-fetched list (S2.1 pure logic)
 2026-10-31 — S2.7 — L1 — what does the stub return vs what does the test want (None vs {})
+2026-11-02 — S2.7 — L1 — test name vs what it arranges; expected dict vs a Transaction; dict.get doc (L2-lite, given with the concept)
 
 ---
 

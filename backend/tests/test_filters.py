@@ -48,4 +48,24 @@ def test_total_by_category_empty_list():
     result = totals_by_category(txn_list)
 
     assert result == {}
+
+def test_total_by_category_one_transaction():
+        txn_1 = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("4.0"),tr_date= date(2026,10,29),category_id='1234')
+        txn_list = [txn_1]
+        result = totals_by_category(txn_list)
+        assert result == {'1234':Decimal('4.0')}
+    
+def test_refund_category():
+        txn_1 = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("10.0"),tr_date= date(2026,10,29),category_id='1234')
+        txn_2 = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("-3.0"),tr_date= date(2026,10,29),category_id='1234')
+        txn_list = [txn_1,txn_2]
+        result = totals_by_category(txn_list)
+
+        assert result == {'1234':Decimal('7.0')}
+
+
+     
+
+
+
        

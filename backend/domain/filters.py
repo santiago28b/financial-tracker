@@ -12,6 +12,8 @@ def transactions_between(transaction_list:list[Transaction], start_date:date,end
     return transactions
 
 def totals_by_category(txns: list[Transaction]) -> dict:
-    if len(txns) == 0:
-        return {}
-    pass
+    totals_by_cat = {}
+    for transaction in txns:
+         totals_by_cat[transaction.category_id] = totals_by_cat.get(transaction.category_id,0) + transaction.amount
+
+    return totals_by_cat

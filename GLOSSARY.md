@@ -40,6 +40,10 @@ _Avoid_: Timestamp, datetime
 A half-open span of Transaction dates: `start` is included, `end` is excluded (`start <= tr_date < end`). A month runs from its first day up to the first day of the next month.
 _Avoid_: Open range (that excludes both ends), closed range with a computed last day
 
+**Category total**:
+The sum of the signed Amounts of a list of Transactions that share a `category_id`. A refund (negative Amount) subtracts from the total and is never dropped. Uncategorised Transactions are totalled under the key `None`.
+_Avoid_: Category sum of absolute values, spend (when refunds are included)
+
 **Opening balance**:
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column
