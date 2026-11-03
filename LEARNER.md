@@ -202,6 +202,9 @@ Evidence:
   "one transaction" test arranged two and asserted result == a Transaction (dict vs
   object again); fixed both after one question each. Proposed defaultdict(Decimal)
   unprompted.
+- 2026-11-02 — S2.8 (min): warm-up right (2.675 → 2.68 from a string; q * 3 = 99.99),
+  answered only the last line until asked. Explained the lost 0.01 and proposed
+  giving the remainder to the biggest share without a hint.
 
 ---
 
