@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.8 — Sorting & percentages
-Last session:     2026-11-03 (S2.8, partial)
-Progress:         17 / 102 sessions
-Streak:           14 days
+Current session:  S2.9 — Fixtures & parametrize
+Last session:     2026-11-04 (S2.8)
+Progress:         18 / 102 sessions
+Streak:           15 days
 ```
 
 Update this block at the end of every session.
@@ -237,7 +237,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Done when:* tested with an empty list, a single transaction, and a refund
     (negative amount).
 
-- [ ] **S2.8 — Sorting & percentages**
+- [x] **S2.8 — Sorting & percentages**
   - *Concept:* Rounding money. Why percentages don't always add up to 100.
   - *Build:* A sorted summary with percentages.
   - *Done when:* tested, including the rounding edge case.
@@ -824,3 +824,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-11-02 — S2.7 — totals_by_category accumulates in one pass: totals[cat] = totals.get(cat, 0) + amount; 0 + Decimal stays Decimal; None is just another key; the `if len == 0` branch was redundant (loop runs zero times → {}); single-txn test fixed to arrange one Transaction and expect a dict, not a Transaction; refund test (+10, −3 → 7) green first run, then broken on purpose to see red; defaultdict(Decimal) considered (reading a missing key inserts it → return dict(...)); 18 passed
 2026-11-02 — S2.8 (min) — concept: rounding each share separately loses cents (3 × 33.33% = 99.99%); quantize(Decimal('0.01'), ROUND_HALF_UP); Decimal('2.675') → 2.68 because a string is exact (a float would give 2.67); fix = largest remainder (give the leftover to the biggest share); S2.8 stays open for the build
 2026-11-03 — S2.8 — warm-up: sorted(items, key=lambda pair: pair[1], reverse=True); items are (key, value) tuples; sorting whole items would compare None with str → TypeError, so sort by the Amount only; totals_summary(dict[UUID | None, Decimal]) -> list[tuple[UUID | None, Decimal, Decimal]] keyed by category_id (the function only sees the dict, no names); percent is Decimal, not float; three-equal-shares test red for the right reason (99.99 ≠ 100.00), then green by giving 100 − sum(rounded) to the first item via a new tuple (tuples are immutable, like frozen); a repeated dict key keeps the last value silently; 19 passed; S2.8 stays open: empty dict crashes with IndexError at [0], and nothing tests the sort order
+2026-11-04 — S2.8 — warm-up 3/3 (sum([]) → 0, sorted([]) → [], [][0] → IndexError); empty-dict test red for the right reason (IndexError at sorted_summary[0]), green with a guard clause at the top (`if not totals:` is the idiomatic form); sort-order test checks category_ids (50 → 40 → 10), not just totals, and was made red by flipping reverse; review: a zero total raises decimal.DivisionByZero, a negative total flips the order and gives 200% / −100% → BACKLOG; 21 passed

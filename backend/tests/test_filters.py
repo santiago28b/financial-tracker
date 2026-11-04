@@ -76,6 +76,28 @@ def test_category_summary():
      result = totals_summary(summary)
      assert sum(percentage for _,_, percentage in result) == Decimal('100.00')
 
+def test_totals_summary_empty_dict():
+     empty_dict = {}
+
+     result = totals_summary(empty_dict)
+     assert result == []
+
+def test_totals_id_order():
+     
+     id_1 = uuid4()
+     id_2 = uuid4()
+     id_3 = uuid4()
+     summary = {
+        id_1:Decimal('10.0'),
+        id_2:Decimal('50.0'),
+        id_3:Decimal('40.0'),  
+     }
+     result = totals_summary(summary)
+
+     assert result[0][0] == id_2
+     assert result[1][0] == id_3
+     assert result[2][0] == id_1
+
 
 
 

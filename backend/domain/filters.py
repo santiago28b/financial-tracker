@@ -23,6 +23,8 @@ def totals_by_category(txns: list[Transaction]) -> dict:
 
 def totals_summary(totals: dict[UUID | None,Decimal]) -> list[tuple[UUID|None,Decimal,Decimal]]:
     summary = []
+    if not totals:
+            return summary
     total = sum([amount for amount in totals.values()])
     for key,val in totals.items():
         percentage = (val/total) * Decimal('100')

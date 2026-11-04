@@ -71,6 +71,9 @@ Evidence:
   agreed to signature + failing test first when reminded of S2.3/S2.6. Asked whether
   "signature" meant the function or the test. First assert summed `result[2]` (one
   tuple, not a column); the test dict repeated keys. Both fixed after one question.
+- 2026-11-04 — S2.8: wrote both tests before any code and showed both reds (first
+  time both without a template). The first sort plan checked totals, not
+  category_ids; fixed after one sentence.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -122,6 +125,7 @@ Evidence:
 - 2026-10-24 — S1.6: did a minimum session instead of skipping; 5-day streak.
 - 2026-10-25 — S2.2: minimum session again; 6-day streak.
 - 2026-10-29 — S2.6: full session; 10-day streak.
+- 2026-11-04 — S2.8: closed a session that took three sittings; 15-day streak.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -173,6 +177,9 @@ Evidence:
   first answer was "inside the range", and named start in / end out when asked.
   Deleted the import from the wrong test file and didn't rerun pytest; 4 red until
   pointed at.
+- 2026-11-04 — S2.8: explained `key=lambda pair: pair[2]` as "index 2 is the
+  percentage", but didn't answer whether sorting by percent can differ from sorting by
+  total (it can: a negative total flips it). Open question.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -222,6 +229,8 @@ Evidence:
   category_id and float for the percent; fixed to UUID | None and Decimal after questions.
   Tried `t[0][2] += x` on a tuple; linked it to frozen + replace from S2.5 alone and built
   a new tuple. Predicted a repeated dict key keeps the last value.
+- 2026-11-04 — S2.8: warm-up 3/3 (sum/sorted/index on empty). Guard clause right,
+  but indented 12 spaces and written as len(...) == 0; test bodies use 5-space indents.
 
 ---
 
@@ -292,6 +301,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-31 — S2.7 — L1 — what does the stub return vs what does the test want (None vs {})
 2026-11-02 — S2.7 — L1 — test name vs what it arranges; expected dict vs a Transaction; dict.get doc (L2-lite, given with the concept)
 2026-11-03 — S2.8 — L2 — list comprehension to pull index 2 from each tuple (tutorial docs); quantize call shape (Decimal docs); fill-in signature template
+2026-11-04 — S2.8 — L1 — assert on category_ids, not totals; how to prove an already-green test can fail
 
 ---
 
