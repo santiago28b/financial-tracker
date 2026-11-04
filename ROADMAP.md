@@ -14,9 +14,9 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.9 — Fixtures & parametrize
-Last session:     2026-11-04 (S2.8)
-Progress:         18 / 102 sessions
+Current session:  S2.10 — Checkpoint
+Last session:     2026-11-04 (S2.9)
+Progress:         19 / 102 sessions
 Streak:           15 days
 ```
 
@@ -242,7 +242,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Build:* A sorted summary with percentages.
   - *Done when:* tested, including the rounding edge case.
 
-- [ ] **S2.9 — Fixtures & parametrize**
+- [x] **S2.9 — Fixtures & parametrize**
   - *Concept:* DRY in tests. `@pytest.fixture`, `@pytest.mark.parametrize`.
   - *Build:* Refactor your tests to use both.
   - *Done when:* fewer lines, same coverage, still green.
@@ -825,3 +825,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-11-02 — S2.8 (min) — concept: rounding each share separately loses cents (3 × 33.33% = 99.99%); quantize(Decimal('0.01'), ROUND_HALF_UP); Decimal('2.675') → 2.68 because a string is exact (a float would give 2.67); fix = largest remainder (give the leftover to the biggest share); S2.8 stays open for the build
 2026-11-03 — S2.8 — warm-up: sorted(items, key=lambda pair: pair[1], reverse=True); items are (key, value) tuples; sorting whole items would compare None with str → TypeError, so sort by the Amount only; totals_summary(dict[UUID | None, Decimal]) -> list[tuple[UUID | None, Decimal, Decimal]] keyed by category_id (the function only sees the dict, no names); percent is Decimal, not float; three-equal-shares test red for the right reason (99.99 ≠ 100.00), then green by giving 100 − sum(rounded) to the first item via a new tuple (tuples are immutable, like frozen); a repeated dict key keeps the last value silently; 19 passed; S2.8 stays open: empty dict crashes with IndexError at [0], and nothing tests the sort order
 2026-11-04 — S2.8 — warm-up 3/3 (sum([]) → 0, sorted([]) → [], [][0] → IndexError); empty-dict test red for the right reason (IndexError at sorted_summary[0]), green with a guard clause at the top (`if not totals:` is the idiomatic form); sort-order test checks category_ids (50 → 40 → 10), not just totals, and was made red by flipping reverse; review: a zero total raises decimal.DivisionByZero, a negative total flips the order and gives 200% / −100% → BACKLOG; 21 passed
+2026-11-04 — S2.9 — one of each: the 4 date-edge tests became test_transactions_between_edges parametrized over (end, tr_date, included) with ids= labels (end had to be a parameter because the last-day case uses Nov 1); the 3 assign tests take a `first` fixture; each test gets a fresh fixture object (function scope, proven by printing transaction_ids under -s); a parametrize row is its own test item, so still 21 passed; asked Claude to write it, chose one of each instead

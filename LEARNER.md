@@ -74,6 +74,9 @@ Evidence:
 - 2026-11-04 — S2.8: wrote both tests before any code and showed both reds (first
   time both without a template). The first sort plan checked totals, not
   category_ids; fixed after one sentence.
+- 2026-11-04 — S2.9: answered only ritual step 3 (the baseline count) and skipped the
+  3 English lines and the signature twice; a fill-in-the-blanks template got the
+  signature lines in one round.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -126,6 +129,7 @@ Evidence:
 - 2026-10-25 — S2.2: minimum session again; 6-day streak.
 - 2026-10-29 — S2.6: full session; 10-day streak.
 - 2026-11-04 — S2.8: closed a session that took three sittings; 15-day streak.
+- 2026-11-04 — S2.9: two sessions in one day (S2.8 close + S2.9).
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -180,6 +184,9 @@ Evidence:
 - 2026-11-04 — S2.8: explained `key=lambda pair: pair[2]` as "index 2 is the
   percentage", but didn't answer whether sorting by percent can differ from sorting by
   total (it can: a negative total flips it). Open question.
+- 2026-11-04 — S2.9: asked Claude to write the refactor ("just seeing it is enough");
+  chose one fixture + one parametrize instead when given the trade-off. Used `ids=`
+  unprompted and explained it as labels.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -231,6 +238,9 @@ Evidence:
   a new tuple. Predicted a repeated dict key keeps the last value.
 - 2026-11-04 — S2.8: warm-up 3/3 (sum/sorted/index on empty). Guard clause right,
   but indented 12 spaces and written as len(...) == 0; test bodies use 5-space indents.
+- 2026-11-04 — S2.9: warm-up right (tuple unpacking in a for loop); predicted parametrize
+  rows keep the count. Matched parametrize → same body/different data and fixture →
+  shared setup. Predicted each test gets a fresh fixture object and proved it with -s.
 
 ---
 
@@ -302,6 +312,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-11-02 — S2.7 — L1 — test name vs what it arranges; expected dict vs a Transaction; dict.get doc (L2-lite, given with the concept)
 2026-11-03 — S2.8 — L2 — list comprehension to pull index 2 from each tuple (tutorial docs); quantize call shape (Decimal docs); fill-in signature template
 2026-11-04 — S2.8 — L1 — assert on category_ids, not totals; how to prove an already-green test can fail
+2026-11-04 — S2.9 — L1 — which test group fits fixture vs parametrize; fill-in signature template
 
 ---
 

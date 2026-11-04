@@ -31,20 +31,21 @@ def test_missing_description_rejected():
        with pytest.raises(TypeError):
                    Transaction(account_id= uuid4(), amount=Decimal("4.0"), tr_date=date.today(), category_id='fsdfsd')
 
-def test_assign_new_category_id():
-        first = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("4.0"), tr_date=date.today(), category_id='1234')
+@pytest.fixture
+def first():
+    return Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("4.0"), tr_date=date.today(), category_id='1234')
+
+def test_assign_new_category_id(first):
         second = first.assign_category("4321")
         assert second.category_id == "4321"
         assert first.category_id == "1234"
         assert first.transaction_id == second.transaction_id
 
-def test_assign_none_makes_uncategorised():
-    first = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("4.0"), tr_date=date.today(), category_id='1234')
-    second = first.assign_category(None)          # what does "uncategorised" mean? (007)
-    assert second.category_id is None          # tip: compare to None with `is`
+def test_assign_none_makes_uncategorised(first):
+    second = first.assign_category(None)         
+    assert second.category_id is None         
 
-def test_assign_same_category_id():
-    first = Transaction(account_id= uuid4(), description= 'ensalsa', amount=Decimal("4.0"), tr_date=date.today(), category_id='1234')
+def test_assign_same_category_id(first):
     second = first.assign_category("1234")         
     assert second is first    
 
