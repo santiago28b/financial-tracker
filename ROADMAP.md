@@ -15,9 +15,9 @@ deployed app with AI features that you can defend in an interview.
 
 ```
 Current session:  S2.8 — Sorting & percentages
-Last session:     2026-11-02 (S2.8 min)
+Last session:     2026-11-03 (S2.8, partial)
 Progress:         17 / 102 sessions
-Streak:           13 days
+Streak:           14 days
 ```
 
 Update this block at the end of every session.
@@ -823,3 +823,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-10-31 — S2.7 (min) — empty-list test green with `return {}` (smallest change: stub returned None, test wanted an empty dict); refund mental check right (€10 + −€3 = €7, a refund subtracts, never dropped); S2.7 stays open for the single-txn and refund tests; 16 passed
 2026-11-02 — S2.7 — totals_by_category accumulates in one pass: totals[cat] = totals.get(cat, 0) + amount; 0 + Decimal stays Decimal; None is just another key; the `if len == 0` branch was redundant (loop runs zero times → {}); single-txn test fixed to arrange one Transaction and expect a dict, not a Transaction; refund test (+10, −3 → 7) green first run, then broken on purpose to see red; defaultdict(Decimal) considered (reading a missing key inserts it → return dict(...)); 18 passed
 2026-11-02 — S2.8 (min) — concept: rounding each share separately loses cents (3 × 33.33% = 99.99%); quantize(Decimal('0.01'), ROUND_HALF_UP); Decimal('2.675') → 2.68 because a string is exact (a float would give 2.67); fix = largest remainder (give the leftover to the biggest share); S2.8 stays open for the build
+2026-11-03 — S2.8 — warm-up: sorted(items, key=lambda pair: pair[1], reverse=True); items are (key, value) tuples; sorting whole items would compare None with str → TypeError, so sort by the Amount only; totals_summary(dict[UUID | None, Decimal]) -> list[tuple[UUID | None, Decimal, Decimal]] keyed by category_id (the function only sees the dict, no names); percent is Decimal, not float; three-equal-shares test red for the right reason (99.99 ≠ 100.00), then green by giving 100 − sum(rounded) to the first item via a new tuple (tuples are immutable, like frozen); a repeated dict key keeps the last value silently; 19 passed; S2.8 stays open: empty dict crashes with IndexError at [0], and nothing tests the sort order

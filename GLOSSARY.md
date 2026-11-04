@@ -44,6 +44,10 @@ _Avoid_: Open range (that excludes both ends), closed range with a computed last
 The sum of the signed Amounts of a list of Transactions that share a `category_id`. A refund (negative Amount) subtracts from the total and is never dropped. Uncategorised Transactions are totalled under the key `None`.
 _Avoid_: Category sum of absolute values, spend (when refunds are included)
 
+**Category summary**:
+The Category totals as a list of `(category_id, total, percent)` sorted biggest total first. Each percent is a Decimal rounded HALF_UP to 2 places, and the cents lost to rounding go to the first item so the percents add up to exactly 100.00. An empty dict gives an empty list.
+_Avoid_: Report, breakdown (as a type name), float percentages
+
 **Opening balance**:
 The Transaction that records the money already in an Account when the User starts tracking it.
 _Avoid_: Starting balance column

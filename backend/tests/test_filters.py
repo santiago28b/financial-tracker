@@ -2,7 +2,7 @@ from domain.transaction import Transaction, TransactionError
 from uuid import UUID, uuid4
 from datetime import date
 from decimal import Decimal
-from domain.filters import transactions_between,totals_by_category
+from domain.filters import transactions_between,totals_by_category,totals_summary
 import pytest
 
 def test_transaction_on_start_is_included():
@@ -62,6 +62,21 @@ def test_refund_category():
         result = totals_by_category(txn_list)
 
         assert result == {'1234':Decimal('7.0')}
+
+def test_category_summary():
+     id_1 = uuid4()
+     id_2 = uuid4()
+     id_3 = uuid4()
+     summary = {
+          id_1:Decimal('9.0'),
+          id_2:Decimal('9.0'),
+          id_3:Decimal('9.0'),  
+     }
+
+     result = totals_summary(summary)
+     assert sum(percentage for _,_, percentage in result) == Decimal('100.00')
+
+
 
 
      

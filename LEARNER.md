@@ -65,6 +65,12 @@ Evidence:
   ("the caller already fetched") fixed it. Said values = "the transactions" before
   "Decimal total". First red came from calling the wrong function, the second from
   `result.values() == None`; the third was right (`assert result == {}`). Rung: L1 only.
+- 2026-11-03 — S2.8: gave ritual line 1 as requirements (no tools) but the rounding
+  rule was just "half up"; one round of 3 questions added the leftover rule, the total
+  in the tuple and empty → []. Then wanted to skip the ritual ("no need to force it");
+  agreed to signature + failing test first when reminded of S2.3/S2.6. Asked whether
+  "signature" meant the function or the test. First assert summed `result[2]` (one
+  tuple, not a column); the test dict repeated keys. Both fixed after one question.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -98,6 +104,10 @@ Evidence:
   compared the object instead of `.tr_date`). Asked a clarifying design question
   (per User? user_id?) before coding instead of guessing. Said "I don't understand,
   explain better" once and got unblocked by a plain explanation.
+- 2026-11-03 — S2.8: flagged a wrong red on their own ("not for the right reasons");
+  gave expected (an assertion failure) and actual when asked, but not ruled out. Asked "where do I add the
+  shortage" with the red pasted instead of stalling. Stopped before the empty-dict and
+  sort tests for time; chose to carry them over, not skip them.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -205,6 +215,13 @@ Evidence:
 - 2026-11-02 — S2.8 (min): warm-up right (2.675 → 2.68 from a string; q * 3 = 99.99),
   answered only the last line until asked. Explained the lost 0.01 and proposed
   giving the remainder to the biggest share without a hint.
+- 2026-11-03 — S2.8: warm-up: explained key=lambda pair: pair[1] and reverse right;
+  called each pair "decimal" before "a tuple, key and value"; predicted None vs str
+  → TypeError. Thought tuples could only hold two items. Reached for a lambda to pull a
+  column (list comprehension / generator was the tool; L2). Hinted `dict[str, ...]` for
+  category_id and float for the percent; fixed to UUID | None and Decimal after questions.
+  Tried `t[0][2] += x` on a tuple; linked it to frozen + replace from S2.5 alone and built
+  a new tuple. Predicted a repeated dict key keeps the last value.
 
 ---
 
@@ -250,6 +267,9 @@ Evidence:
 - 2026-11-02 — S2.7: came up with defaultdict(Decimal) alone; removed the redundant
   empty-list branch and renamed the shadowing variable after one question; broke the
   function to prove the refund test can fail.
+- 2026-11-03 — S2.8: questioned a red that crashed before the assert ("not for the right
+  reasons"); traced totals_summary({}) to the IndexError and saw that no test guards
+  reverse=True, both without a hint.
 
 ---
 
@@ -271,6 +291,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-10-29 — S2.6 — L2 — plain function vs class (a class bundles state; this has none); domain gets an already-fetched list (S2.1 pure logic)
 2026-10-31 — S2.7 — L1 — what does the stub return vs what does the test want (None vs {})
 2026-11-02 — S2.7 — L1 — test name vs what it arranges; expected dict vs a Transaction; dict.get doc (L2-lite, given with the concept)
+2026-11-03 — S2.8 — L2 — list comprehension to pull index 2 from each tuple (tutorial docs); quantize call shape (Decimal docs); fill-in signature template
 
 ---
 
