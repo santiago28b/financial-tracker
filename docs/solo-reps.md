@@ -30,6 +30,8 @@ Open `/session` and answer these. Claude copies the answers into the solo rep lo
 
 Pure Python + pytest. No web, no database.
 
+**Deliverable:** `grades.py` + `test_grades.py`, no CLI. Done = `pytest` passes.
+
 1. A `Grade` type with a subject name and a score from 0 to 100. Creating one with
    a score outside that range raises an error.
 2. `average(grades)` returns the average score. Decide what happens with an empty list, and test it.

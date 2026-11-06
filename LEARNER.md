@@ -339,3 +339,6 @@ One line per session where a hint was used: `date — session — highest rung �
 One entry per `S#.R`: `date — rep — finished? — where I got stuck — what I'd do differently`.
 
 <!-- newest at the bottom -->
+- 2026-11-06 — S2.R Grades — finished: all 4 requirements, pytest passes; stretch
+  (`best_subject`) not attempted — stuck first on decorators, ~20 min; also looked
+  up pytest setup and classes/constructors — nothing different next time.

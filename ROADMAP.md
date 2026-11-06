@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.R — Solo rep (grades module)
-Last session:     2026-11-05 (S2.10)
-Progress:         20 / 102 sessions
-Streak:           16 days
+Current session:  S3.1 — Why a relational database
+Last session:     2026-11-06 (S2.R)
+Progress:         21 / 102 sessions
+Streak:           17 days
 ```
 
 Update this block at the end of every session.
@@ -253,7 +253,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Done when:* `pytest` is green and `domain/` imports no web or DB library.
     Commit.
 
-- [ ] **S2.R — Solo rep:** from a blank folder, no Claude, 60 min: a `grades`
+- [x] **S2.R — Solo rep:** from a blank folder, no Claude, 60 min: a `grades`
   module (add a grade, average, letter grade) with pytest tests, edge cases
   included. Log where you got stuck in `LEARNER.md`.
 
