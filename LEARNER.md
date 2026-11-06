@@ -77,6 +77,10 @@ Evidence:
 - 2026-11-04 — S2.9: answered only ritual step 3 (the baseline count) and skipped the
   3 English lines and the signature twice; a fill-in-the-blanks template got the
   signature lines in one round.
+- 2026-11-05 — S2.10: ritual started as one blob (menu + "some if or try", signatures
+  "the transaction or the menu input"); a fill-in template plus 4 one-line follow-ups got
+  all 3 steps, including the expected run (Uncategorised −20 100%) that S2.9 skipped. That run
+  then matched the real output exactly.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -114,6 +118,8 @@ Evidence:
   gave expected (an assertion failure) and actual when asked, but not ruled out. Asked "where do I add the
   shortage" with the red pasted instead of stalling. Stopped before the empty-dict and
   sort tests for time; chose to carry them over, not skip them.
+- 2026-11-05 — S2.10: said "ok i did what i could" with 3 bugs left (crash on every add),
+  then fixed one per round over 4 rounds without stalling.
 
 ### 3. Consistency
 Drill: 30–45 min daily; a 10-minute **minimum session** counts on bad days.
@@ -130,6 +136,7 @@ Evidence:
 - 2026-10-29 — S2.6: full session; 10-day streak.
 - 2026-11-04 — S2.8: closed a session that took three sittings; 15-day streak.
 - 2026-11-04 — S2.9: two sessions in one day (S2.8 close + S2.9).
+- 2026-11-05 — S2.10: full session the day after a double; 16-day streak.
 
 ### 4. Including work I can't explain
 Drill: before a session closes, explain any one line Claude picks. If I can't,
@@ -187,6 +194,10 @@ Evidence:
 - 2026-11-04 — S2.9: asked Claude to write the refactor ("just seeing it is enough");
   chose one fixture + one parametrize instead when given the trade-off. Used `ids=`
   unprompted and explained it as labels.
+- 2026-11-05 — S2.10: explained `e` (the exception object; its text comes from the raise).
+  First Stage 2 answer was "we use TDD" (how to test, not how to structure); second try
+  was right: logic in pure functions, I/O stays in main. Said "done" on the Decimal fix
+  before it was in the file; the rerun showed it.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -241,6 +252,10 @@ Evidence:
 - 2026-11-04 — S2.9: warm-up right (tuple unpacking in a for loop); predicted parametrize
   rows keep the count. Matched parametrize → same body/different data and fixture →
   shared setup. Predicted each test gets a fresh fixture object and proved it with -s.
+- 2026-11-05 — S2.10: `while input != 'exit'` (the function, not a call, same as uuid4 vs
+  uuid4() from S2.3); positional args put date.today() into description; if/if/else
+  instead of elif. Predicted alone that Decimal raises for 'abc', not Transaction, and
+  named InvalidOperation from the traceback.
 
 ---
 
@@ -289,6 +304,8 @@ Evidence:
 - 2026-11-03 — S2.8: questioned a red that crashed before the assert ("not for the right
   reasons"); traced totals_summary({}) to the IndexError and saw that no test guards
   reverse=True, both without a hint.
+- 2026-11-05 — S2.10: wired the whole domain into a working CLI; every bug fixed alone
+  from one question; the expected run written in the ritual matched the real output.
 
 ---
 
@@ -313,6 +330,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-11-03 — S2.8 — L2 — list comprehension to pull index 2 from each tuple (tutorial docs); quantize call shape (Decimal docs); fill-in signature template
 2026-11-04 — S2.8 — L1 — assert on category_ids, not totals; how to prove an already-green test can fail
 2026-11-04 — S2.9 — L1 — which test group fits fixture vs parametrize; fill-in signature template
+2026-11-05 — S2.10 — L1 — field order vs positional args; input vs input(); which exception Decimal raises; fill-in ritual template
 
 ---
 

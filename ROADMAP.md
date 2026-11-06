@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S2.10 — Checkpoint
-Last session:     2026-11-04 (S2.9)
-Progress:         19 / 102 sessions
-Streak:           15 days
+Current session:  S2.R — Solo rep (grades module)
+Last session:     2026-11-05 (S2.10)
+Progress:         20 / 102 sessions
+Streak:           16 days
 ```
 
 Update this block at the end of every session.
@@ -247,7 +247,7 @@ language mechanic the build depends on, before the start-up ritual.
   - *Build:* Refactor your tests to use both.
   - *Done when:* fewer lines, same coverage, still green.
 
-- [ ] **S2.10 — Checkpoint**
+- [x] **S2.10 — Checkpoint**
   - *Build:* Delete or rewrite the old CLI loop so it only *calls* the domain.
     Run `pytest --cov` if you like.
   - *Done when:* `pytest` is green and `domain/` imports no web or DB library.
@@ -826,3 +826,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-11-03 — S2.8 — warm-up: sorted(items, key=lambda pair: pair[1], reverse=True); items are (key, value) tuples; sorting whole items would compare None with str → TypeError, so sort by the Amount only; totals_summary(dict[UUID | None, Decimal]) -> list[tuple[UUID | None, Decimal, Decimal]] keyed by category_id (the function only sees the dict, no names); percent is Decimal, not float; three-equal-shares test red for the right reason (99.99 ≠ 100.00), then green by giving 100 − sum(rounded) to the first item via a new tuple (tuples are immutable, like frozen); a repeated dict key keeps the last value silently; 19 passed; S2.8 stays open: empty dict crashes with IndexError at [0], and nothing tests the sort order
 2026-11-04 — S2.8 — warm-up 3/3 (sum([]) → 0, sorted([]) → [], [][0] → IndexError); empty-dict test red for the right reason (IndexError at sorted_summary[0]), green with a guard clause at the top (`if not totals:` is the idiomatic form); sort-order test checks category_ids (50 → 40 → 10), not just totals, and was made red by flipping reverse; review: a zero total raises decimal.DivisionByZero, a negative total flips the order and gives 200% / −100% → BACKLOG; 21 passed
 2026-11-04 — S2.9 — one of each: the 4 date-edge tests became test_transactions_between_edges parametrized over (end, tr_date, included) with ids= labels (end had to be a parameter because the last-day case uses Nov 1); the 3 assign tests take a `first` fixture; each test gets a fresh fixture object (function scope, proven by printing transaction_ids under -s); a parametrize row is its own test item, so still 21 passed; asked Claude to write it, chose one of each instead
+2026-11-05 — S2.10 — checkpoint: main.py rewritten as a menu loop that only reads input, calls Transaction / totals_by_category / totals_summary and prints; `while input != 'exit'` compared the built-in function to a string (always True), fixed with a variable; positional args put date.today() into description (fixed by matching field order); the loop catches TransactionError and decimal.InvalidOperation (Decimal('abc') raises before Transaction runs), so bad input no longer kills it; summary builds its own totals instead of reusing stale state; if/if/else → elif; account_id = uuid4(), category_id None = Uncategorised; domain/ imports only stdlib; Stage 2 answer: logic in pure functions, I/O stays in main, so tests call them with data; 21 passed
