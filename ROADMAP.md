@@ -14,10 +14,10 @@ deployed app with AI features that you can defend in an interview.
 ## 📍 You are here
 
 ```
-Current session:  S3.1 — Why a relational database
-Last session:     2026-11-06 (S2.R)
-Progress:         21 / 102 sessions
-Streak:           17 days
+Current session:  S3.2 — SQL by hand first
+Last session:     2026-11-07 (S3.1)
+Progress:         22 / 102 sessions
+Streak:           18 days
 ```
 
 Update this block at the end of every session.
@@ -263,7 +263,7 @@ language mechanic the build depends on, before the start-up ritual.
 **Goal:** data survives a restart, and you understand what the DB does for you.
 **Interview Qs:** "What's an index?" "What's the N+1 problem?" "What's a transaction in a DB?" "What's a race condition, and how do you prevent one?"
 
-- [ ] **S3.1 — Why a relational database**
+- [x] **S3.1 — Why a relational database**
   - *Concept:* Files vs DB. Tables, rows, constraints. The DB enforces rules
     even when your code has bugs. ACID in plain words.
   - *Build:* Create the Supabase project. Find both connection strings (direct vs
@@ -827,3 +827,4 @@ One line per session: `YYYY-MM-DD — S#.# — what I learned / built`
 2026-11-04 — S2.8 — warm-up 3/3 (sum([]) → 0, sorted([]) → [], [][0] → IndexError); empty-dict test red for the right reason (IndexError at sorted_summary[0]), green with a guard clause at the top (`if not totals:` is the idiomatic form); sort-order test checks category_ids (50 → 40 → 10), not just totals, and was made red by flipping reverse; review: a zero total raises decimal.DivisionByZero, a negative total flips the order and gives 200% / −100% → BACKLOG; 21 passed
 2026-11-04 — S2.9 — one of each: the 4 date-edge tests became test_transactions_between_edges parametrized over (end, tr_date, included) with ids= labels (end had to be a parameter because the last-day case uses Nov 1); the 3 assign tests take a `first` fixture; each test gets a fresh fixture object (function scope, proven by printing transaction_ids under -s); a parametrize row is its own test item, so still 21 passed; asked Claude to write it, chose one of each instead
 2026-11-05 — S2.10 — checkpoint: main.py rewritten as a menu loop that only reads input, calls Transaction / totals_by_category / totals_summary and prints; `while input != 'exit'` compared the built-in function to a string (always True), fixed with a variable; positional args put date.today() into description (fixed by matching field order); the loop catches TransactionError and decimal.InvalidOperation (Decimal('abc') raises before Transaction runs), so bad input no longer kills it; summary builds its own totals instead of reusing stale state; if/if/else → elif; account_id = uuid4(), category_id None = Uncategorised; domain/ imports only stdlib; Stage 2 answer: logic in pure functions, I/O stays in main, so tests call them with data; 21 passed
+2026-11-07 — S3.1 — concept: a CHECK constraint guards the table even when a write skips the domain (CSV import, SQL editor, a buggy endpoint); created the Supabase project with the Data API off (DECISIONS #008: Supabase sits behind my own API) and automatic RLS on (a free lock, since the postgres role bypasses it); DIRECT_URL → Alembic (one long schema job), POOL_URL → FastAPI (many short requests, transaction pooler); .env ignored (git status clean, .gitignore line 2); SELECT 1 → 1 in the SQL editor, which doesn't test the .env strings, so Python tests them in S3.4

@@ -81,6 +81,11 @@ Evidence:
   "the transaction or the menu input"); a fill-in template plus 4 one-line follow-ups got
   all 3 steps, including the expected run (Uncategorised −20 100%) that S2.9 skipped. That run
   then matched the real output exactly.
+- 2026-11-07 — S3.1: ritual line 1 was a real requirement but missed the two strings
+  and the gitignore check; a fill-in template got "not sure", and splitting it into
+  one question per blank worked. Line 2 (what each string is for) needed concepts not
+  taught yet ("you want me to guess?"), so Claude gave the answer. Named only one
+  variable for two strings until asked.
 
 ### 2. Giving up when stuck
 Drill: write expected / actual / ruled out first, then the **hint ladder**
@@ -198,6 +203,11 @@ Evidence:
   First Stage 2 answer was "we use TDD" (how to test, not how to structure); second try
   was right: logic in pure functions, I/O stays in main. Said "done" on the Decimal fix
   before it was in the file; the rerun showed it.
+- 2026-11-07 — S3.1: asked what `CHECK (amount <> 0)` and RLS mean instead of nodding
+  along (good). Called pooled "pull" (fixed). The first explanation of direct/pooled
+  repeated what each *is*, not what it's *for*; the second try was right (pool = many
+  short requests, direct = long schema jobs). Saw without help that the SQL editor's
+  SELECT 1 doesn't test the .env strings.
 
 ### 5. Python language mechanics
 Self-reported 2026-10-26 after S2.3: "I have a hard time trying to understand
@@ -331,6 +341,7 @@ One line per session where a hint was used: `date — session — highest rung �
 2026-11-04 — S2.8 — L1 — assert on category_ids, not totals; how to prove an already-green test can fail
 2026-11-04 — S2.9 — L1 — which test group fits fixture vs parametrize; fill-in signature template
 2026-11-05 — S2.10 — L1 — field order vs positional args; input vs input(); which exception Decimal raises; fill-in ritual template
+2026-11-07 — S3.1 — L3 (answer given) — which program uses the direct vs pooled string; L2 RLS (Supabase docs)
 
 ---
 

@@ -63,3 +63,7 @@ _Avoid_: Transfer flag, is_transfer
 **DB transaction**:
 A group of database writes that commit or roll back together. Always written with the "DB" prefix.
 _Avoid_: Transaction (unqualified)
+
+**Direct connection / Pooled connection**:
+The two ways to reach the Supabase Postgres. Direct (`DIRECT_URL`) opens its own connection and is used by Alembic for schema changes. Pooled (`POOL_URL`, transaction mode) borrows a connection from Supabase's pooler and is used by the FastAPI server for many short requests.
+_Avoid_: "pull" connection, using the direct string in the web server
